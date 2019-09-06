@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Menu/>
+    <Menu :menuItems="pages"/>
     <Intro/>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   components: {
     Intro,
     Menu
+  },
+  data(){
+    return {
+      pages : [{title:'home',url:'#home'}, {title:'apps',url:'#apps'}, {title:'technical skills',url:'#tech-skills'}, {title:'contact me',url:'#contact'}]
+    }
   }
 }
 </script>

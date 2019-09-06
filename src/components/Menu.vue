@@ -1,18 +1,16 @@
 <template>
     <div class="menu">
         <ul>
-            <li>home</li>
-            <li>apps</li>
-            <li>technical skills</li>
-            <li>contact me</li>
+           <li :key="index" v-for="(item, index) in menuItems"><a :href="item.url">{{item.title}}</a></li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        name: "menu"
-    }
+        name: "menu",
+        props: ['menuItems'],
+        }
 </script>
 
 <style scoped>
@@ -23,7 +21,6 @@
         border: 1px solid red;
         transform: translateY(-50%);
     }
-
     li{
         padding: 20px 0;
     }
