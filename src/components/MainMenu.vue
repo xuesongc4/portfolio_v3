@@ -18,8 +18,10 @@
         position: fixed;
         top:50%;
         right: 100px;
-        border: 1px solid red;
         transform: translateY(-50%);
+        background-color: rgba(255,255,255,.7);
+        z-index: 1000;
+        font-size: 16px;
     }
     li{
         padding: 20px 0;
