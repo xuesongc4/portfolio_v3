@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <MainMenu :menuItems="pages"/>
-        <Intro/>
-        <Apps/>
+        <Intro :starDensity="1.3"/>
+        <Apps :applications="apps"/>
     </div>
 </template>
 
@@ -21,10 +21,46 @@
         data() {
             return {
                 pages: [
-                        {title: 'home', url: '#intro'},
-                        {title: 'apps', url: '#applications'},
-                        {title: 'technical skills', url: '#tech-skills'},
-                        {title: 'contact me', url: '#contact'}]
+                    {title: 'home', url: '#intro'},
+                    {title: 'apps', url: '#applications'},
+                    {title: 'technical skills', url: '#tech-skills'},
+                    {title: 'contact me', url: '#contact'}
+                    ]
+                ,
+                apps: [
+                    {
+                        title: 'demo 1',
+                        video: '#video1',
+                        picture: '#picture1',
+                        gitUrl: '#gitDemo1',
+                        url: '#demo1',
+                        info: 'za za'
+                    },
+                    {
+                        title: 'demo 2',
+                        video: '#video2',
+                        picture: '#picture2',
+                        gitUrl: '#gitDemo2',
+                        url: '#demo2',
+                        info: 'blah blah'
+                    },
+                    {
+                        title: 'demo 3',
+                        video: '#video3',
+                        picture: '#picture3',
+                        gitUrl: '#gitDemo3',
+                        url: '#demo1',
+                        info: 'heh ehehe'
+                    },
+                    {
+                        title: 'demo 4',
+                        video: '#video4',
+                        picture: '#picture4',
+                        gitUrl: '#gitDemo4',
+                        url: '#demo4',
+                        info: 'chehehehe',
+                    }
+                ]
             }
         }
     }
@@ -36,16 +72,15 @@
 
     #app {
         font-family: 'Montserrat ', Helvetica, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        position: absolute;
-        top: 0;
         font-size: 20px;
+        text-align: center;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1{
         font-family: 'Oswald', Helvetica, sans-serif;
+    }
+    h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', Helvetica, sans-serif;
     }
 
     body {
@@ -56,6 +91,11 @@
     section {
         height: 100vh;
         width: 100vw;
+    }
+
+    .page-title{
+        font-size: 50px;
+        font-weight: 700;
     }
 
     @keyframes twinkle {
@@ -105,5 +145,15 @@
         to {
             opacity: 1;
         }
+    }
+
+    @keyframes rotate-cube {
+        100% {
+            transform: rotateY(-360000deg);
+        }
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
     }
 </style>
