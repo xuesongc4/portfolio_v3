@@ -29,33 +29,29 @@
                 ,
                 apps: [
                     {
-                        title: 'demo 1',
-                        video: '#video1',
-                        picture: '#picture1',
+                        title: 'iBet',
+                        videoUrl: require('./videos/iBet.mp4'),
                         gitUrl: '#gitDemo1',
                         url: '#demo1',
                         info: 'za za'
                     },
                     {
-                        title: 'demo 2',
-                        video: '#video2',
-                        picture: '#picture2',
+                        title: 'Moduulis',
+                        videoUrl: require('./videos/moduulis.mp4'),
                         gitUrl: '#gitDemo2',
                         url: '#demo2',
                         info: 'blah blah'
                     },
                     {
-                        title: 'demo 3',
-                        video: '#video3',
-                        picture: '#picture3',
+                        title: 'Tic Tac Remix',
+                        videoUrl: require('./videos/tictacremix.mp4'),
                         gitUrl: '#gitDemo3',
                         url: '#demo1',
                         info: 'heh ehehe'
                     },
                     {
-                        title: 'demo 4',
-                        video: '#video4',
-                        picture: '#picture4',
+                        title: 'Reading For Dummies',
+                        videoUrl: require('./videos/reading.mp4'),
                         gitUrl: '#gitDemo4',
                         url: '#demo4',
                         info: 'chehehehe',

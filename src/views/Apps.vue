@@ -6,10 +6,17 @@
                 <div :class="[{ 'front': index === 0 }, { 'right': index === 1 }, { 'back': index === 2 }, { 'left': index === 3 }, 'cube-side', 'cube-border']"
                      :key="index" v-for="(app, index) in applications">
                     <div class="cube-font">
+                        {{app.title}}
+                    </div>
+                    <div class="video-container">
+                        <video class="cube_video" autoplay loop muted>
+                            <source v-if="app.videoUrl" :src="app.videoUrl" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
         </div>
+        <h3 class="caption">Click on a video for more info...</h3>
     </section>
 </template>
 
@@ -47,7 +54,12 @@
         transform: translateX(-50%);
         top: 230px;
     }
-
+    .caption{
+        position: absolute;
+        bottom: 100px;
+        left: 15%;
+        color: white;
+    }
     #cube {
         transform-style: preserve-3d;
     }
@@ -139,6 +151,14 @@
         width: 100%;
         height: 220px;
         overflow: hidden;
+        position: relative;
+    }
+    video{
+        position: absolute;
+        width: 180%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
 
     .cube-border {
