@@ -1,10 +1,11 @@
 <template>
     <section id="applications">
-        <h2 class="page-title">Applications</h2>
-        <div class="cube-container">
-            <div id="cube" class="rotate">
-                <div :class="[{ 'front': index === 0 }, { 'right': index === 1 }, { 'back': index === 2 }, { 'left': index === 3 }, 'cube-side', 'cube-border']"
-                     :key="index" v-for="(app, index) in applications">
+        <div class="cube-container" :class="moveCubeData">
+            <h2 class="page-title">Applications</h2>
+            <div id="cube" :class="[rotateCubeData, cubeSideSelectedData]">
+                <div class="cube-side cube-border"
+                     :class="[{ 'front': index === 0 }, { 'right': index === 1 }, { 'back': index === 2 }, { 'left': index === 3 }, {highlight:app == selected}]"
+                     :key="index" v-for="(app, index) in applications" @click="selected=app; cubeSelect(index)">
                     <div class="cube-font">
                         {{app.title}}
                     </div>
@@ -16,14 +17,48 @@
                 </div>
             </div>
         </div>
-        <h3 class="caption">Click on a video for more info...</h3>
+        <h3 class="caption" @click="cubeDeSelect()">Click on a video for more info...</h3>
     </section>
 </template>
 
 <script>
     export default {
         name: "Apps",
-        props: ['applications']
+        props: ['applications'],
+        data: function () {
+            return {
+                selected: "",
+                rotateCubeData: "rotate",
+                moveCubeData: "",
+                cubeSideSelectedData: ""
+            }
+        },
+        methods: {
+            cubeSelect(side) {
+                this.rotateCubeData = "";
+                this.moveCubeData = "moveCube";
+
+                if (side === 0) {
+                    this.cubeSideSelectedData = "show-front"
+                } else if (side === 1) {
+                    this.cubeSideSelectedData = "show-right"
+                } else if (side === 2) {
+                    this.cubeSideSelectedData = "show-back"
+                } else if (side === 3) {
+                    this.cubeSideSelectedData = "show-left"
+                }
+            },
+            cubeDeSelect() {
+                this.selected = "";
+                setTimeout(() => {
+                    this.moveCubeData = "";
+                    setTimeout(() => {
+                        this.rotateCubeData = "rotate";
+                    }, 500)
+                }, 500)
+            }
+
+        }
     }
 </script>
 
@@ -35,11 +70,15 @@
     }
 
     .page-title {
-        top: 40px;
+        top: -180px;
         left: 50%;
         transform: translateX(-50%);
         color: white;
         position: absolute;
+    }
+
+    .moveCube {
+        transform: translateX(-350px) !important;
     }
 
     .cube-container {
@@ -53,13 +92,16 @@
         left: 50%;
         transform: translateX(-50%);
         top: 230px;
+        transition-duration: .5s;
     }
-    .caption{
+
+    .caption {
         position: absolute;
         bottom: 100px;
         left: 15%;
         color: white;
     }
+
     #cube {
         transform-style: preserve-3d;
     }
@@ -115,30 +157,18 @@
 
     .show-front {
         transform: rotateY(15deg);
-        transition-duration: 1s;
     }
 
     .show-back {
         transform: rotateY(-165deg);
-        transition-duration: 1s;
     }
 
     .show-right {
         transform: rotateY(-75deg);
-        transition-duration: 1s;
     }
 
     .show-left {
         transform: rotateY(-255deg);
-        transition-duration: 1s;
-    }
-
-    .show-top {
-        transform: rotateX(-90deg);
-    }
-
-    .show-bottom {
-        transform: rotateX(90deg);
     }
 
     .cube-video {
@@ -153,12 +183,13 @@
         overflow: hidden;
         position: relative;
     }
-    video{
+
+    video {
         position: absolute;
         width: 180%;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 
     .cube-border {
@@ -171,7 +202,7 @@
 
     .rotate {
         animation-name: rotate-cube;
-        animation-duration: 15000s;
+        animation-duration: 12000s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
     }
@@ -182,20 +213,24 @@
         pointer-events: none;
     }
 
-    .zoom-front {
+    .cube-side.front.highlight {
         transform: rotateY(0deg) translateZ(400px) !important;
+        transition-delay: .5s;
     }
 
-    .zoom-right {
+    .cube-side.right.highlight {
         transform: rotateY(90deg) translateZ(400px) !important;
+        transition-delay: .5s;
     }
 
-    .zoom-back {
+    .cube-side.back.highlight {
         transform: rotateY(180deg) translateZ(400px) !important;
+        transition-delay: .5s;
     }
 
-    .zoom-left {
+    .cube-side.left.highlight {
         transform: rotateY(-90deg) translateZ(400px) !important;
+        transition-delay: .5s;
     }
 
     #info {
@@ -254,14 +289,6 @@
 
     @media only screen and (max-width: 1024px) {
 
-        #application .page-title {
-            top: -40px;
-        }
-
-        #application h2 {
-            font-size: 30px;
-        }
-
         #application .cube {
             top: 180px;
         }
@@ -270,6 +297,7 @@
             height: 180px;
             width: 180px;
         }
+
         #cube .front {
             transform: rotateY(0deg) translateZ(150px)
         }

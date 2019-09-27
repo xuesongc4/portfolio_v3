@@ -34,9 +34,13 @@
             milkyStarLoader() {
                 const numberOfStars = 100 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
-                    let size = '1px';
+                    let size = '2px';
                     const topPx = Math.random() * window.innerHeight + 'px';
                     const leftPx = Math.random() * window.innerWidth + 'px';
+
+                    if(i%20 ==0){
+                        size = '5px';
+                    }
 
                     const milkyStar = {
                         top: topPx,
@@ -48,7 +52,7 @@
                 }
             },
             twinkleStarLoader() {
-                const numberOfStars = 500 * this.starDensity;
+                const numberOfStars = 100 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
                     let size = '2px';
                     const twinkle = 'twinkle ' + ((Math.random() * 3) + 2) + 's linear ' + ((Math.random() * 2)) + 's infinite';

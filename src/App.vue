@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <MainMenu :menuItems="pages"/>
-        <Intro :starDensity="1.3"/>
+        <Intro :starDensity="1"/>
         <Apps :applications="apps"/>
     </div>
 </template>
