@@ -32,13 +32,13 @@
         },
         methods: {
             milkyStarLoader() {
-                const numberOfStars = 100 * this.starDensity;
+                const numberOfStars = 40 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
                     let size = '2px';
                     const topPx = Math.random() * window.innerHeight + 'px';
                     const leftPx = Math.random() * window.innerWidth + 'px';
 
-                    if(i%20 ==0){
+                    if(i%10 ==0){
                         size = '5px';
                     }
 
@@ -52,14 +52,14 @@
                 }
             },
             twinkleStarLoader() {
-                const numberOfStars = 100 * this.starDensity;
+                const numberOfStars = 120 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
                     let size = '2px';
                     const twinkle = 'twinkle ' + ((Math.random() * 3) + 2) + 's linear ' + ((Math.random() * 2)) + 's infinite';
                     const topPx = Math.random() * window.innerHeight + 'px';
                     const leftPx = Math.random() * window.innerWidth + 'px';
 
-                    if(i%8 ==0){
+                    if(i%4 ==0){
                         size = '5px';
                     }
 
@@ -140,11 +140,11 @@
     .star {
         position: absolute;
         background: rgba(0, 0, 0, 0);
-        border-radius: 5px;
+        border-radius: 50%;
     }
     .milkyStar{
         position: absolute;
-        border-radius: 5px;
+        border-radius: 50%;
         background-color: black;
     }
     .shootingStar {

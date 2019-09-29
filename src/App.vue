@@ -145,7 +145,7 @@
 
     @keyframes rotate-cube {
         100% {
-            transform: rotateY(-360000deg);
+            transform: rotateY(-36000deg);
         }
     }
 
