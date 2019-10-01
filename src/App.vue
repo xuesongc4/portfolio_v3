@@ -25,7 +25,7 @@
                     {title: 'apps', url: '#applications'},
                     {title: 'technical skills', url: '#tech-skills'},
                     {title: 'contact me', url: '#contact'}
-                    ]
+                ]
                 ,
                 apps: [
                     {
@@ -33,28 +33,28 @@
                         videoUrl: require('./videos/iBet.mp4'),
                         gitUrl: '#gitDemo1',
                         url: '#demo1',
-                        info: 'za za'
+                        info: 'A mobile friendly web application that allows for a user to create an account and make simulated sports bets with real odds. Results are logged and graphed under that account so that long term results can be analyzed.'
                     },
                     {
                         title: 'Moduulis',
                         videoUrl: require('./videos/moduulis.mp4'),
                         gitUrl: '#gitDemo2',
                         url: '#demo2',
-                        info: 'blah blah'
+                        info: 'A WordPress based mobile friendly e-commerce (Woocomerce) website built around customizable snack stadiums. The site includes a blog, a vlog and a functional store.'
                     },
                     {
                         title: 'Tic Tac Remix',
                         videoUrl: require('./videos/tictacremix.mp4'),
                         gitUrl: '#gitDemo3',
-                        url: '#demo1',
-                        info: 'heh ehehe'
+                        url: '#demo3',
+                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s turn adds layers of music to the playing sound track.'
                     },
                     {
                         title: 'Reading For Dummies',
                         videoUrl: require('./videos/reading.mp4'),
                         gitUrl: '#gitDemo4',
                         url: '#demo4',
-                        info: 'chehehehe',
+                        info: ' The average person reads at about 300 words per a minute, however by removing the need to move your eyes you can read much faster. Take a look at this app that helps slow readers like myself read at amazingly high speeds!'
                     }
                 ]
             }
@@ -72,9 +72,14 @@
         text-align: center;
     }
 
-    h1{
+    a {
+        text-decoration: none;
+    }
+
+    h1 {
         font-family: 'Oswald', Helvetica, sans-serif;
     }
+
     h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', Helvetica, sans-serif;
     }
@@ -89,7 +94,7 @@
         width: 100vw;
     }
 
-    .page-title{
+    .page-title {
         font-size: 50px;
         font-weight: 700;
     }
