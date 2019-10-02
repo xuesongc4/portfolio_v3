@@ -1,7 +1,7 @@
 <template>
     <section id="applications">
-        <Cube :applications="applications" :close="close"  v-on:selectSide="selectSide($event)"/>
-        <CubeInfo :applications="applications" :side="side"  v-on:closeInfo="closeInfo($event)"/>
+        <Cube :applications="applications" :close="close" :side="cubeSide"  @selectSide="selectSide($event)"/>
+        <CubeInfo :applications="applications" :side="infoSide"  @closeInfo="closeInfo($event)" @changeSide="changeSide($event)"/>
         <h3 class="caption">Click on a video for more info...</h3>
     </section>
 </template>
@@ -18,17 +18,21 @@
         },
         data(){
             return{
-                side:"",
+                infoSide:"",
+                cubeSide:"",
                 close:""
             }
         },
         props: ['applications'],
         methods: {
             selectSide($event){
-                this.side = $event;
+                this.infoSide = $event;
             },
             closeInfo($event){
                 this.close = $event;
+            },
+            changeSide($event){
+                this.cubeSide = $event;
             }
         }
     }

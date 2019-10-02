@@ -3,8 +3,8 @@
         <h2 class="page-title">Applications</h2>
         <div id="cube" :class="[rotateCubeData, cubeSideSelectedData]">
             <div class="cube-side cube-border"
-                 :class="[{ 'front': index === 0 }, { 'right': index === 1 }, { 'back': index === 2 }, { 'left': index === 3 }, {'highlight':app == selected}]"
-                 :key="index" v-for="(app, index) in applications" @click="selected=app; cubeSelect(index)">
+                 :class="[{ 'front': index === 0 }, { 'right': index === 1 }, { 'back': index === 2 }, { 'left': index === 3 }, {'highlight':index === selected}]"
+                 :key="index" v-for="(app, index) in applications" @click="cubeSelect(index); selected=index">
                 <div class="cube-font">
                     {{app.title}}
                 </div>
@@ -21,7 +21,7 @@
 <script>
     export default {
         name: "Cube",
-        props: ["applications", "close"],
+        props: ["applications", "close", "side"],
         data: function () {
             return {
                 selected: "",
@@ -34,6 +34,10 @@
             close: function ($event){
                 this.moveCubeData = $event.data;
                 this.cubeDeSelect();
+            },
+            side: function ($event){
+                this.selected = $event;
+                this.cubeSelect($event);
             }
         },
         methods: {

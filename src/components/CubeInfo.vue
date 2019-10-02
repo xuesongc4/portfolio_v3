@@ -1,6 +1,7 @@
 <template>
     <div class="info-container">
-        <div id="info" :class="{'infoExpand': sideShow !== ''}">
+        <div id="info"
+             :class="[{'horizontal': infoHorizontal === true} , {'vertical': infoVertical === true}, {'show': infoShow === true}]">
             <div :key="index" v-for="(info, index) in applications" class="app-info"
                  :class="{'show fadeIn': sideShow === index }">
                 <h4>{{info.title}}</h4>
@@ -8,18 +9,18 @@
                     <p>
                         {{info.info}}
                     </p>
-                    <div class="links" :class="{'show': sideShow === index}">
+                    <div class="links" :class="[{'show': (sideShow === index && bubble === true) } ]">
                         <a class="button link" target="_blank" :href="info.url">Live Site</a>
                         <a class="button github" target="_blank" :href="info.gitUrl">GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bubble-container" :class="{'fadeIn': sideShow !== ''}">
+        <div class="bubble-container" :class="{'fadeIn': bubble === true}">
             <div :key="index" v-for="(info, index) in applications" class="bubble"
                  :class="{'selected': sideShow === index }" @click="changeSide(index)"></div>
         </div>
-        <div class="close-button-container" :class="{'show': sideShow !== ''}">
+        <div class="close-button-container" :class="{'show': closeButton === true}">
             <div @click="closeInfo" id="close-button">X</div>
         </div>
     </div>
@@ -31,22 +32,50 @@
         props: ['applications', 'side'],
         data() {
             return {
+                timeInterval: 500,
                 sideShow: this.side,
+                closeButton: false,
+                infoHorizontal: false,
+                infoVertical: false,
+                bubble: false,
+                infoShow: false
             }
         },
         watch: {
             side: function (newSide) {
                 this.sideShow = newSide.data;
+                this.openInfo();
             }
         },
         methods: {
+            openInfo() {
+                this.infoShow = true;
+                setTimeout(() => {
+                    this.closeButton = true;
+                    this.infoHorizontal = true;
+                    setTimeout(() => {
+                        this.infoVertical = true;
+                        setTimeout(() => {
+                            this.bubble = true;
+                        }, this.timeInterval)
+                    }, this.timeInterval)
+                }, this.timeInterval/10)
+            },
             closeInfo() {
                 this.$emit("closeInfo", {data: 'close'});
-                this.sideShow = "";
+                this.bubble = false;
+                this.infoVertical = false;
+                setTimeout(() => {
+                    this.infoHorizontal = false;
+                    setTimeout(() => {
+                        this.closeButton = false;
+                        this.infoShow = false;
+                    }, this.timeInterval)
+                }, this.timeInterval)
             },
-            changeSide(side){
-                this.sideShow = side; 
-                this.$emit("changeSide",{data: side})
+            changeSide(side) {
+                this.sideShow = side;
+                this.$emit("changeSide", side)
             }
         }
     }
@@ -73,13 +102,15 @@
         transition-duration: .3s;
         cursor: pointer;
     }
-    .bubble.selected{
+
+    .bubble.selected {
         border-width: 3px;
         box-shadow: 0 0 20px 5px white;
         background-color: white;
         pointer-events: none;
     }
-    .links{
+
+    .links {
         position: absolute;
         bottom: 0px;
         display: none;
@@ -93,12 +124,13 @@
     }
 
     #info {
-        border: transparent 5px solid;
         box-sizing: border-box;
         border-radius: 40px 0 40px 40px;
-        background: transparent;
+        background: rgba(255, 255, 255, .6);
+        border: white solid 5px;
         height: 0;
-        width: 400px;
+        width: 0;
+        display: none;
         font-size: 20px;
         text-align: left;
         line-height: 1.3;
@@ -184,17 +216,19 @@
     }
 
     .show {
-        display: block;
+        display: block !important;
     }
 
     .fadeIn {
         opacity: 1;
+        transition-delay: .5s;
     }
 
-    #info.infoExpand {
+    #info.horizontal {
+        width: 400px;
+    }
+
+    #info.vertical {
         height: 460px;
-        border: 5px solid white;
-        background: rgba(255, 255, 255, .5);
-        transition-duration: .5s;
     }
 </style>
