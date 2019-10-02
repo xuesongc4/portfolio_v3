@@ -21,8 +21,8 @@
         data() {
             return {
                 pages: [
-                    {title: 'home', url: '#intro'},
-                    {title: 'apps', url: '#applications'},
+                    {title: 'About Me', url: '#intro'},
+                    {title: 'applications', url: '#applications'},
                     {title: 'technical skills', url: '#tech-skills'},
                     {title: 'contact me', url: '#contact'}
                 ]
@@ -64,10 +64,9 @@
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
-    @import url("https://fonts.googleapis.com/css?family=Montserrat &display=swap");
 
     #app {
-        font-family: 'Montserrat ', Helvetica, sans-serif;
+        font-family: Helvetica, sans-serif;
         font-size: 20px;
         text-align: center;
     }
@@ -77,11 +76,11 @@
     }
 
     h1 {
-        font-family: 'Oswald', Helvetica, sans-serif;
+        font-family: 'Oswald', sans-serif;
     }
 
     h2, h3, h4, h5, h6 {
-        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-family: Helvetica, sans-serif;
     }
 
     body {
