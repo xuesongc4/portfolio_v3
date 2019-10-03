@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="bubble-container" :class="{'fadeIn': bubble === true}">
+        <div class="bubble-container" :class="{'bubbleShow': bubble === true}">
             <div :key="index" v-for="(info, index) in applications" class="bubble"
                  :class="{'selected': sideShow === index }" @click="changeSide(index)"></div>
         </div>
@@ -87,10 +87,9 @@
         bottom: 25px;
         width: 100%;
         height: 50px;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
-        opacity: 0;
     }
 
     .bubble {
@@ -102,12 +101,15 @@
         transition-duration: .3s;
         cursor: pointer;
     }
-
     .bubble.selected {
         border-width: 3px;
         box-shadow: 0 0 20px 5px white;
         background-color: white;
         pointer-events: none;
+    }
+
+    .bubbleShow{
+        display: flex;
     }
 
     .links {

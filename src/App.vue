@@ -69,6 +69,8 @@
         font-family: Helvetica, sans-serif;
         font-size: 20px;
         text-align: center;
+        height: 100vh;
+        overflow-y: hidden;
     }
 
     a {

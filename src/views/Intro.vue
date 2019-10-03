@@ -135,7 +135,7 @@
         white-space: nowrap;
         opacity: 0;
         animation: fadeIn ease-in 2s forwards;
-        animation-delay: 2s
+        animation-delay: 1s
     }
     .star {
         position: absolute;

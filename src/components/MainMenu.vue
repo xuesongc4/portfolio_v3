@@ -2,12 +2,17 @@
     <div class="menu">
         <ul>
             <div :stlye="{top:arrowPosition}" class="selected"></div>
-            <li :key="index" v-for="(item, index) in menuItems"><a :href="item.url">{{item.title}}</a></li>
+            <li :key="index" v-for="(item, index) in menuItems"><a  v-smooth-scroll="{duration: 2000, container: '#app'}" :href="item.url">{{item.title}}</a></li>
         </ul>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue'
+    import vueSmoothScroll from 'vue2-smooth-scroll'
+
+    Vue.use(vueSmoothScroll);
+
     export default {
         name: "mainMenu",
         props: ['menuItems'],
@@ -15,14 +20,6 @@
             return {
                 arrowPosition:0
             }
-        },
-        methods: {
-            liveArrow(){
-
-            }
-        },
-        beforeMount() {
-            this.liveArrow();
         }
     }
 </script>
@@ -61,6 +58,10 @@
     a {
         color: white;
         font-weight: 700;
+        transition-duration: .3s;
+    }
+    a:hover{
+        opacity: .5;
     }
 
     .selected {
