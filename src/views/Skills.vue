@@ -1,5 +1,5 @@
 <template>
-    
+    <section id="tech-skills">skills</section>
 </template>
 
 <script>
@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+    #tech-skills{
+        background-color: black;
+    }
 </style>

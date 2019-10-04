@@ -3,6 +3,8 @@
         <MainMenu :menuItems="pages"/>
         <Intro :starDensity="1"/>
         <Apps :applications="apps"/>
+        <Skills></Skills>
+        <Contact></Contact>
     </div>
 </template>
 
@@ -10,13 +12,18 @@
     import MainMenu from './components/MainMenu'
     import Intro from './views/Intro'
     import Apps from './views/Apps'
+    import Skills from './views/Skills'
+    import Contact from "./views/Contact";
 
     export default {
         name: 'app',
         components: {
             Intro,
             MainMenu,
-            Apps
+            Apps,
+            Skills,
+            Contact
+
         },
         data() {
             return {
@@ -100,6 +107,10 @@
         font-weight: 700;
     }
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
     @keyframes twinkle {
         0% {
             transform: scale(1, 1);
@@ -155,7 +166,15 @@
         }
     }
 
-    ::-webkit-scrollbar {
-        display: none;
+    @keyframes arrow {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
     }
 </style>

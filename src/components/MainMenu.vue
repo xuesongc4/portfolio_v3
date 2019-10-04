@@ -1,9 +1,21 @@
 <template>
-    <div class="menu">
-        <ul>
-            <div :stlye="{top:arrowPosition}" class="selected"></div>
-            <li :key="index" v-for="(item, index) in menuItems"><a  v-smooth-scroll="{duration: 2000, container: '#app'}" :href="item.url">{{item.title}}</a></li>
-        </ul>
+    <div>
+        <div class="mouse-arrow mouse-up" :class="{show : arrowPosition !== 0}">
+            <a class="scroll white" :href="upPage" v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
+        </div>
+        <div class="mouse-arrow mouse-down" :class="{show : arrowPosition !== 75}">
+            <a class="scroll white" :href="downPage" v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <div :style="{top: arrowPosition+'%'}" class="selected"></div>
+                <li :key="index" v-for="(item, index) in menuItems">
+                    <a @click="moveArrow(index)" v-smooth-scroll="{duration: 2000, container: '#app'}" :href="item.url">
+                        {{item.title}}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -18,7 +30,14 @@
         props: ['menuItems'],
         data: function () {
             return {
-                arrowPosition:0
+                arrowPosition: 0,
+                upPage: "",
+                downPage: "",
+            }
+        },
+        methods: {
+            moveArrow($page) {
+                this.arrowPosition = $page * 25
             }
         }
     }
@@ -60,7 +79,8 @@
         font-weight: 700;
         transition-duration: .3s;
     }
-    a:hover{
+
+    .menu a:hover {
         opacity: .5;
     }
 
@@ -73,5 +93,84 @@
         position: absolute;
         left: 0;
         top: 0;
+        transition-duration: 2s;
     }
+
+    .mouse-arrow.mouse-down {
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+    }
+
+    .mouse-arrow.mouse-up {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+    }
+
+    .mouse-arrow.mouse-down a span{
+        transform: rotate(-45deg);
+    }
+
+    .mouse-arrow.mouse-up a span{
+        transform: rotate(135deg);
+    }
+
+    .mouse-arrow a.black span{
+        border-left: 3px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    .mouse-arrow a.white span{
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+    }
+    .mouse-arrow a {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        z-index: 2;
+        display: inline-block;
+        transform: translate(0, -50%);
+        letter-spacing: .1em;
+        text-decoration: none;
+        transition: opacity .3s;
+    }
+
+    .mouse-arrow a span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        animation: arrow 2.5s infinite;
+        opacity: 0;
+        box-sizing: border-box;
+    }
+
+    .mouse-arrow.mouse-down a span:nth-of-type(1) {
+        animation-delay: 0s;
+    }
+    .mouse-arrow.mouse-down a span:nth-of-type(2) {
+        top: 15px;
+        animation-delay: .25s;
+    }
+
+    .mouse-arrow.mouse-up a span:nth-of-type(1) {
+        animation-delay: .25s;
+    }
+
+    .mouse-arrow.mouse-up a span:nth-of-type(2) {
+        animation-delay: 0s;
+        top: 15px;
+    }
+
+    .mouse-arrow{
+        display: none;
+        cursor: pointer;
+    }
+    .show{
+        display: block;
+    }
+
 </style>

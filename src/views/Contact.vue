@@ -1,5 +1,5 @@
 <template>
-    
+    <section id="contact">contact</section>
 </template>
 
 <script>
@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+    #contact{
+        background-color: black;
+    }
 </style>
