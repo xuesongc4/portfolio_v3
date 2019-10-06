@@ -1,16 +1,20 @@
 <template>
     <div>
         <div class="mouse-arrow mouse-up" :class="{show : arrowPosition !== 0}">
-            <a class="scroll white" :href="upPage" v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
+            <a id="up-arrow" class="scroll white" @click="pageDataTracker('up')"
+               v-smooth-scroll="{duration: 2000, container: '#app'}"
+            ><span></span><span></span></a>
         </div>
         <div class="mouse-arrow mouse-down" :class="{show : arrowPosition !== 75}">
-            <a class="scroll white" :href="downPage" v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
+            <a id="down-arrow" class="scroll white" @click="pageDataTracker('down')"
+               v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
         </div>
         <div class="menu">
             <ul>
                 <div :style="{top: arrowPosition+'%'}" class="selected"></div>
                 <li :key="index" v-for="(item, index) in menuItems">
-                    <a @click="moveArrow(index)" v-smooth-scroll="{duration: 2000, container: '#app'}" :href="item.url">
+                    <a :id="'menu'+item.url" @click="moveArrow(index)" v-smooth-scroll="{duration: 2000, container: '#app'}"
+                       :href="item.url">
                         {{item.title}}
                     </a>
                 </li>
@@ -36,8 +40,58 @@
             }
         },
         methods: {
-            moveArrow($page) {
-                this.arrowPosition = $page * 25
+            moveArrow($arrow) {
+                this.arrowPosition = $arrow * 25
+            },
+            pageDataTracker($direction) {
+                if ($direction === "up") {
+                    if(this.arrowPosition === 25){
+                        document.getElementById("menu#intro").click();
+                    }else if(this.arrowPosition === 50){
+                        document.getElementById("menu#applications").click();
+                    }else if(this.arrowPosition === 75){
+                        document.getElementById("menu#tech-skills").click();
+                    }
+                } else if ($direction === "down") {
+                    if(this.arrowPosition === 0){
+                        document.getElementById("menu#applications").click();
+                    }else if(this.arrowPosition === 25){
+                        document.getElementById("menu#tech-skills").click();
+                    }else if(this.arrowPosition === 50){
+                        document.getElementById("menu#contact").click();
+                    }
+                }
+
+            },
+            handleScroll($event) {
+                if ($event.deltaY < 0 && this.arrowPosition !== 0) {
+                    document.getElementById("up-arrow").click();
+                } else if ($event.deltaY > 0 && this.arrowPosition !== 75) {
+                    document.getElementById("down-arrow").click();
+                }
+            }
+        },
+        created() {
+            window.addEventListener('wheel', this.handleScroll);
+        },
+        destroyed() {
+            window.removeEventListener('wheel', this.handleScroll);
+        },
+        watch:{
+            arrowPosition: function(){
+                if (this.arrowPosition === 0) {
+                    this.upPage = "";
+                    this.downPage = "#applications";
+                } else if (this.arrowPosition === 25) {
+                    this.upPage = "#intro";
+                    this.downPage = "#tech-skills";
+                } else if (this.arrowPosition === 50) {
+                    this.upPage = "#applications";
+                    this.downPage = "#contact";
+                } else if (this.arrowPosition === 75) {
+                    this.upPage = "#tech-skills";
+                    this.downPage = "";
+                }
             }
         }
     }
@@ -108,23 +162,24 @@
         top: 50px;
     }
 
-    .mouse-arrow.mouse-down a span{
+    .mouse-arrow.mouse-down a span {
         transform: rotate(-45deg);
     }
 
-    .mouse-arrow.mouse-up a span{
+    .mouse-arrow.mouse-up a span {
         transform: rotate(135deg);
     }
 
-    .mouse-arrow a.black span{
+    .mouse-arrow a.black span {
         border-left: 3px solid black;
         border-bottom: 3px solid black;
     }
 
-    .mouse-arrow a.white span{
+    .mouse-arrow a.white span {
         border-left: 3px solid #fff;
         border-bottom: 3px solid #fff;
     }
+
     .mouse-arrow a {
         position: absolute;
         bottom: 20px;
@@ -151,6 +206,7 @@
     .mouse-arrow.mouse-down a span:nth-of-type(1) {
         animation-delay: 0s;
     }
+
     .mouse-arrow.mouse-down a span:nth-of-type(2) {
         top: 15px;
         animation-delay: .25s;
@@ -165,11 +221,12 @@
         top: 15px;
     }
 
-    .mouse-arrow{
+    .mouse-arrow {
         display: none;
         cursor: pointer;
     }
-    .show{
+
+    .show {
         display: block;
     }
 
