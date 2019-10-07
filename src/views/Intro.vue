@@ -104,6 +104,7 @@
         background-size: cover;
         position: relative;
         overflow: hidden;
+        background-color: white;
     }
     h1{
         font-size: 50px;

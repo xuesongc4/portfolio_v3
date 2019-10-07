@@ -5,6 +5,7 @@
         <Apps :applications="apps"/>
         <Skills></Skills>
         <Contact></Contact>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -14,6 +15,7 @@
     import Apps from './views/Apps'
     import Skills from './views/Skills'
     import Contact from "./views/Contact";
+    import Footer from './components/Footer'
 
     export default {
         name: 'app',
@@ -22,7 +24,8 @@
             MainMenu,
             Apps,
             Skills,
-            Contact
+            Contact,
+            Footer
 
         },
         data() {
@@ -78,6 +81,11 @@
         text-align: center;
         height: 100vh;
         overflow-y: hidden;
+    }
+
+    .page_title{
+        font-size: 50px;
+        font-weight: 700;
     }
 
     a {
