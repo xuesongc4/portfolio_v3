@@ -26,9 +26,9 @@
         bottom: 80px;
         width: 100%;
         height: 80px;
-        font-weight: 700;
         display: block;
         position: relative;
+        font-size: 28px;
     }
     .footer-container{
         position: absolute;
@@ -43,10 +43,11 @@
     }
     footer a{
         color: white;
-        margin: 0 10px;
+        margin-left: 20px;
+        font-weight: 700;
     }
     footer a:hover{
-        opacity: .8;
+        color: #a42327;
     }
     .social{
         display: flex;
