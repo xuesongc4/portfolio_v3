@@ -80,8 +80,8 @@
         border-radius: 20px;
         background-color: rgba(0, 0, 0, .5);
         position: absolute;
-        top: 32%;
-        left: 50%;
+        top: 35%;
+        left: 42%;
         transform: translate(-50%, -30%);
         font-size: 20px;
         box-shadow: 0 0 50px 5px black;
