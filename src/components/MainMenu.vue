@@ -117,7 +117,7 @@
 
     li {
         text-align: left;
-        padding: 22px 0;
+        padding: 24px 0
     }
 
     li:first-of-type {
@@ -143,7 +143,7 @@
         height: 0;
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
-        border-left: 10px solid white;
+        border-left: 16px solid white;
         position: absolute;
         left: 0;
         top: 0;
