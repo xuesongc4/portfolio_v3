@@ -9,18 +9,34 @@
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/me_cartoon.png">
-                        <form>
-                            <div class="input-container">
-                                <input type="text" name="name" class="form-control" placeholder="Name*">
-                                <input type="email" name="email" class="form-control" placeholder="Email*">
+                        <form @submit="onSubmit" action="POST" data-netlify="true">
+                            <div class="input-row">
+                                <div class="input-container">
+                                    <input type="text" name="name" :maxlength="maxChar" class="form-control"
+                                           v-model="form.value.name" :class="{ 'error': form.error.name === 'error'}"
+                                           placeholder="Name*">
+                                    <div class="errorMessage" v-if="form.errorMessage.name">{{form.errorMessage.name}}
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input type="email" name="email" :maxlength="maxChar" class="form-control"
+                                           v-model="form.value.email" :class="{ 'error': form.error.email === 'error'}"
+                                           placeholder="Email*">
+                                    <div class="errorMessage" v-if="form.errorMessage.email">
+                                        {{form.errorMessage.email}}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="input-container">
-                                 <textarea name="body" rows='4' cols="25" type="text"
-                                           class="form-control textarea-control"
+                            <div class="textarea-container">
+                                 <textarea name="body" rows='4' cols="25" type="text" :maxlength="maxChar"
+                                           class="form-control textarea-control" v-model="form.value.message"
+                                           :class="{'error': form.error.message === 'error'}"
                                            placeholder="Message*"></textarea>
+                                <div class="errorMessage" v-if="form.errorMessage.message">
+                                    {{form.errorMessage.message}}</div>
                             </div>
                             <div class="button-container">
-                                <button type="submit" name="submit" class="submit" onclick="send_email(event)">
+                                <button class="submit" type="submit" name="submit">
                                     <div class="send">
                                         SEND
                                     </div>
@@ -28,7 +44,6 @@
                                         <div class="loader"></div>
                                     </div>
                                 </button>
-                                <div class="send-message"></div>
                             </div>
                         </form>
                     </div>
@@ -40,24 +55,77 @@
 
 <script>
     export default {
-        name: "Contact"
+        name: "Contact",
+        data() {
+            return {
+                form: {
+                    value: {
+                        email: "",
+                        name: "",
+                        message: ""
+                    },
+                    error: {
+                        email: null,
+                        name: null,
+                        message: null
+                    },
+                    errorMessage: {
+                        email: "",
+                        name: "",
+                        message: ""
+                    },
+                    ready: false
+                },
+                maxChar: 255
+            }
+        },
+        methods: {
+            onSubmit($event) {
+                $event.preventDefault();
+                this.form.errorMessage.name = "";
+                this.form.errorMessage.email = "";
+                this.form.errorMessage.message = "";
+
+                if (this.form.value.message && this.form.value.name && this.form.value.email) {
+                    this.form.ready = true;
+                } else {
+                    if (!this.form.value.name) {
+                        this.form.errorMessage.name = "Please enter your name";
+                        this.form.error.name = "error";
+                    }
+                    if (!this.form.value.email) {
+                        this.form.errorMessage.email = "Please enter your email address"
+                        this.form.error.email = "error";
+                    }
+                    if (!this.form.value.message) {
+                        this.form.errorMessage.message = "Please enter a message"
+                        this.form.error.message = "error";
+                    }
+                }
+            }
+        }
     }
 </script>
 
 <style scoped>
-    .map-bg{
-        background: url("../assets/map.png")center center no-repeat;
+    .error {
+        border-left: 5px solid red !important;
+    }
+
+    .map-bg {
+        background: url("../assets/map.png") center center no-repeat;
         background-size: cover;
         height: 100vh;
         width: 100vw;
-        z-index: -10;
+        z-index: -100;
         position: fixed;
         bottom: 0;
     }
-    .stars-bg{
-        background: url("../assets/stars2.png") no-repeat;
+
+    .stars-bg {
+        background: url("../assets/stars-bg2.png") no-repeat;
         background-position-x: center;
-        background-position-y: -220px;
+        background-position-y: -60px;
         height: 100vh;
         width: 100vw;
         position: absolute;
@@ -88,13 +156,28 @@
     }
 
     .input-container {
+        position: relative;
+        flex: 1 1 0;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .input-container:first-of-type{
+        margin-right: 20px;
+    }
+    .textarea-container{
+         position: relative;
+         width: 100%;
+         margin: 10px 0;
+    }
+
+    .input-row {
         display: flex;
     }
 
-    .input-container input, .input-container textarea {
-        margin: 10px;
-        border: 2px solid transparent;
-
+    .input-row input, .textarea-container textarea {
+        border: 3px solid transparent;
+        box-sizing:border-box;
+        padding: 8px 12px;
     }
 
     .contact-form .page_title {
@@ -115,17 +198,10 @@
 
     .form-control {
         background-color: rgba(255, 255, 255, .7);
-        border-radius: 4px;
-        color: #111;
-        display: block;
-        font-size: 15px;
-        height: 30px;
-        padding: 6px 12px;
-        margin-left: -12px;
+        border-radius: 5px;
+        color: black;
+        font-size: 16px;
         width: 100%;
-        font-family: 'Montserrat', sans-serif;
-        border: none;
-        margin-bottom: 20px;
     }
 
     .form-control:focus {
@@ -134,9 +210,8 @@
         box-shadow: 0 0 10px 1px #A42327;
     }
 
-    ::-webkit-placeholder, ::-o-placeholder, ::-moz-placeholder {
-        font-family: 'Montserrat', sans-serif;
-        color: #d9d9d9;
+    ::placeholder {
+        color: dimgray;
         font-size: 15px;
     }
 
@@ -185,12 +260,14 @@
         width: 44.45px;
     }
 
-    .send-message {
-        background-color: black;
-        margin-top: 10px;
-        color: white;
-        border: 2px solid red;
-        display: none;
+    .errorMessage {
+        text-align: left;
+        color: lightcoral;
         font-size: 16px;
+        background-color: rgba(255,255,255,.1);
+        padding: 8px 6px;
+        line-height: 20px;
+        top: -4px;
+        position: relative;
     }
 </style>

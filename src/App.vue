@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <MainMenu :menuItems="pages"/>
-        <Intro :starDensity="1"/>
+        <Intro :starDensity="10" :shooting-star-density="1" :screen-size="1920"/>
         <Apps :applications="apps"/>
         <Skills></Skills>
         <Contact></Contact>
@@ -137,6 +137,16 @@
         100% {
             background: rgba(0, 0, 0, 0.0);
             transform: scale(1, 1);
+        }
+    }
+
+    @keyframes spinningSky {
+        0% {
+            transform: translate(-50%, -50%) rotate(0);
+
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(-360deg);
         }
     }
 

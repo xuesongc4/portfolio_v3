@@ -15,14 +15,13 @@
             <h1>Jason Chen</h1>
             <h2>&lt;web_developer&gt;</h2>
         </div>
-        <div v-for="(star, $index) in stars" :style="star" :key="$index" class="star"></div>
     </section>
 </template>
 
 <script>
     export default {
         name: 'Intro',
-        props: ['starDensity'],
+        props: ['starDensity','shootingStarDensity','screenSize'],
         data: function () {
             return {
                 stars: [],
@@ -32,11 +31,11 @@
         },
         methods: {
             milkyStarLoader() {
-                const numberOfStars = 40 * this.starDensity;
+                const numberOfStars = 100 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
                     let size = '2px';
-                    const topPx = Math.random() * window.innerHeight + 'px';
-                    const leftPx = Math.random() * window.innerWidth + 'px';
+                    const topPx = Math.random() * this.screenSize+ 'px';
+                    const leftPx = Math.random() * this.screenSize + 'px';
 
                     if(i%10 ==0){
                         size = '5px';
@@ -51,30 +50,8 @@
                     this.milkyStars[i] = milkyStar;
                 }
             },
-            twinkleStarLoader() {
-                const numberOfStars = 120 * this.starDensity;
-                for (let i = 0; i < numberOfStars; i++) {
-                    let size = '2px';
-                    const twinkle = 'twinkle ' + ((Math.random() * 3) + 2) + 's linear ' + ((Math.random() * 2)) + 's infinite';
-                    const topPx = Math.random() * window.innerHeight + 'px';
-                    const leftPx = Math.random() * window.innerWidth + 'px';
-
-                    if(i%4 ==0){
-                        size = '5px';
-                    }
-
-                    const star = {
-                        animation: twinkle,
-                        top: topPx,
-                        left: leftPx,
-                        height: size,
-                        width: size
-                    }
-                    this.stars[i] = star;
-                }
-            },
             shootingStarLoader() {
-                const numberOfStars = 10 * this.starDensity;
+                const numberOfStars = 10 * this.shootingStarDensity;
                 for (let i = 0; i < numberOfStars; i++) {
                     const randomSpeed = (Math.random() * 10) + 2;
                     const randomStartTime = Math.random() * 3;
@@ -92,7 +69,6 @@
             }
         },
         beforeMount() {
-            this.twinkleStarLoader();
             this.milkyStarLoader();
             this.shootingStarLoader();
         }
@@ -138,11 +114,6 @@
         animation: fadeIn ease-in 2s forwards;
         animation-delay: 1s
     }
-    .star {
-        position: absolute;
-        background: rgba(0, 0, 0, 0);
-        border-radius: 50%;
-    }
     .milkyStar{
         position: absolute;
         border-radius: 50%;
@@ -162,17 +133,18 @@
     #shooting-star-landing {
         height: 40vw;
         width: 20vw;
-        border-radius: 50%;
         position: absolute;
         top: -65%;
         left: 45%;
         transform: rotate(145deg);
-        z-index: -100;
     }
     #milky-way{
-        height: 100vh;
+        height: 100vw;
         width: 100vw;
         position: absolute;
-        z-index: -110;
+        top:50%;
+        left: 50%;
+        animation: spinningSky linear 240s infinite;
+        transform-origin: center center;
     }
 </style>
