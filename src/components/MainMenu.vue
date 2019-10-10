@@ -102,7 +102,7 @@
         position: fixed;
         bottom: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, .7);
+        background-color: rgba(0, 0, 0, .3);
         z-index: 1000;
         font-size: 16px;
         text-transform: uppercase;
@@ -135,7 +135,7 @@
     }
 
     .menu a:hover {
-        opacity: .5;
+        color: #a42327;
     }
 
     .selected {
@@ -179,6 +179,10 @@
         border-left: 3px solid #fff;
         border-bottom: 3px solid #fff;
     }
+    .mouse-arrow:hover a.white span {
+        border-left: 3px solid #a42327;
+        border-bottom: 3px solid #a42327;
+    }
 
     .mouse-arrow a {
         position: absolute;
@@ -191,6 +195,7 @@
         text-decoration: none;
         transition: opacity .3s;
     }
+
 
     .mouse-arrow a span {
         position: absolute;
