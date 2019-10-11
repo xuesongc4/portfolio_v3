@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <MainMenu :menuItems="pages"/>
-        <Intro :starDensity="10" :shooting-star-density="1" :screen-size="1920"/>
+        <Intro :starDensity="10" :shooting-star-density="1"/>
         <Apps :applications="apps"/>
         <Skills></Skills>
         <Contact></Contact>
@@ -82,7 +82,12 @@
         height: 100vh;
         overflow-y: hidden;
     }
-
+    #tech-skills{
+        margin-top: -42px;
+    }
+    #contact{
+        margin-top: 1px;
+    }
     .page_title{
         font-size: 50px;
         font-weight: 700;

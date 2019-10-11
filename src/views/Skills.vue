@@ -1,5 +1,7 @@
 <template>
-    <section id="tech-skills">skills</section>
+    <section id="tech-skills">
+        <h2 class="page-title">Tech Skills</h2>
+    </section>
 </template>
 
 <script>
@@ -10,6 +12,11 @@
 
 <style scoped>
     #tech-skills{
-        background-color: black;
+        background-color: white;
+    }
+    .page-title{
+        position: relative;
+        top: 75px;
+        color: #a42327;
     }
 </style>

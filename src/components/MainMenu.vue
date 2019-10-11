@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="mouse-arrow mouse-up" :class="{show : arrowPosition !== 0}">
-            <a id="up-arrow" class="scroll white" @click="pageDataTracker('up')"
+            <a id="up-arrow" class="scroll white" :class="{black: arrowPosition === 50}" @click="pageDataTracker('up')"
                v-smooth-scroll="{duration: 2000, container: '#app'}"
             ><span></span><span></span></a>
         </div>
         <div class="mouse-arrow mouse-down" :class="{show : arrowPosition !== 75}">
-            <a id="down-arrow" class="scroll white" @click="pageDataTracker('down')"
+            <a id="down-arrow" class="scroll white" :class="{black: arrowPosition === 50}" @click="pageDataTracker('down')"
                v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
         </div>
         <div class="menu">
@@ -170,16 +170,18 @@
         transform: rotate(135deg);
     }
 
-    .mouse-arrow a.black span {
-        border-left: 3px solid black;
-        border-bottom: 3px solid black;
-    }
 
     .mouse-arrow a.white span {
         border-left: 3px solid #fff;
         border-bottom: 3px solid #fff;
     }
-    .mouse-arrow:hover a.white span {
+
+    .mouse-arrow a.black span {
+        border-left: 3px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    .mouse-arrow:hover a.white span, .mouse-arrow:hover a.black span {
         border-left: 3px solid #a42327;
         border-bottom: 3px solid #a42327;
     }

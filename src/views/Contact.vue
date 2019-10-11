@@ -82,9 +82,7 @@
         methods: {
             onSubmit($event) {
                 $event.preventDefault();
-                this.form.errorMessage.name = "";
-                this.form.errorMessage.email = "";
-                this.form.errorMessage.message = "";
+                this.form.errorMessage.name = this.form.errorMessage.email = this.form.errorMessage.message = this.form.error.name = this.form.error.email = this.form.error.message = "";
 
                 if (this.form.value.message && this.form.value.name && this.form.value.email) {
                     this.form.ready = true;
@@ -159,7 +157,7 @@
         position: relative;
         flex: 1 1 0;
         width: 100%;
-        margin: 10px 0;
+        margin:0 0 30px
     }
     .input-container:first-of-type{
         margin-right: 20px;
@@ -267,7 +265,7 @@
         background-color: rgba(255,255,255,.1);
         padding: 8px 6px;
         line-height: 20px;
-        top: -4px;
-        position: relative;
+        bottom: -30px;
+        position: absolute;
     }
 </style>
