@@ -82,15 +82,19 @@
                 if (this.arrowPosition === 0) {
                     this.upPage = "";
                     this.downPage = "#applications";
+                    this.$emit('inView', false);
                 } else if (this.arrowPosition === 25) {
                     this.upPage = "#intro";
                     this.downPage = "#tech-skills";
+                    this.$emit('inView', false);
                 } else if (this.arrowPosition === 50) {
                     this.upPage = "#applications";
                     this.downPage = "#contact";
+                    this.$emit('inView', true);
                 } else if (this.arrowPosition === 75) {
                     this.upPage = "#tech-skills";
                     this.downPage = "";
+                    this.$emit('inView', false);
                 }
             }
         }
@@ -102,11 +106,16 @@
         position: fixed;
         bottom: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, .3);
+        background-color: black;
         z-index: 1000;
         font-size: 16px;
         text-transform: uppercase;
         padding: 20px;
+        opacity: .4;
+        transition-duration: .3s;
+    }
+    .menu:hover{
+        opacity: .75;
     }
 
     ul {
@@ -153,21 +162,27 @@
     .mouse-arrow.mouse-down {
         position: absolute;
         left: 50%;
-        bottom: 50px;
+        bottom: 40px;
     }
 
     .mouse-arrow.mouse-up {
         position: absolute;
         left: 50%;
-        top: 50px;
+        top: 40px;
     }
 
     .mouse-arrow.mouse-down a span {
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) translateX(-50%);
     }
 
     .mouse-arrow.mouse-up a span {
-        transform: rotate(135deg);
+        transform: rotate(135deg) translateX(50%);
+    }
+
+
+    .mouse-arrow a.white span {
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
     }
 
     .mouse-arrow a.black span {
@@ -175,11 +190,7 @@
         border-bottom: 3px solid black;
     }
 
-    .mouse-arrow a.white span {
-        border-left: 3px solid #fff;
-        border-bottom: 3px solid #fff;
-    }
-    .mouse-arrow:hover a.white span {
+    .mouse-arrow:hover a.white span, .mouse-arrow:hover a.black span {
         border-left: 3px solid #a42327;
         border-bottom: 3px solid #a42327;
     }
@@ -190,7 +201,6 @@
         left: 50%;
         z-index: 2;
         display: inline-block;
-        transform: translate(0, -50%);
         letter-spacing: .1em;
         text-decoration: none;
         transition: opacity .3s;

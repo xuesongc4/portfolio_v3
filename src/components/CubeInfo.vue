@@ -187,7 +187,7 @@
         border-radius: 50%;
         width: 60px;
         height: 60px;
-        background: url('../assets/galaxy3.jpg') no-repeat center center fixed;
+        background: url('../assets/images/galaxy3.jpg') no-repeat center center fixed;
         position: absolute;
         top: -33px;
         right: -33px;

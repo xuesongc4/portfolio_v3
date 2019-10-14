@@ -8,7 +8,7 @@
                         Connect With Me
                     </div>
                     <div class="contact-form-container">
-                        <img src="../assets/me_cartoon.png">
+                        <img src="../assets/images/me_cartoon.png">
                         <form @submit="onSubmit" action="POST" data-netlify="true">
                             <div class="input-row">
                                 <div class="input-container">
@@ -82,9 +82,7 @@
         methods: {
             onSubmit($event) {
                 $event.preventDefault();
-                this.form.errorMessage.name = "";
-                this.form.errorMessage.email = "";
-                this.form.errorMessage.message = "";
+                this.form.errorMessage.name = this.form.errorMessage.email = this.form.errorMessage.message = this.form.error.name = this.form.error.email = this.form.error.message = "";
 
                 if (this.form.value.message && this.form.value.name && this.form.value.email) {
                     this.form.ready = true;
@@ -113,7 +111,7 @@
     }
 
     .map-bg {
-        background: url("../assets/map.png") center center no-repeat;
+        background: url("../assets/images/map.png") center center no-repeat;
         background-size: cover;
         height: 100vh;
         width: 100vw;
@@ -123,8 +121,8 @@
     }
 
     .stars-bg {
-        background: url("../assets/stars-bg2.png") no-repeat;
-        background-position-x: center;
+        background: url("../assets/images/stars-bg2.png") no-repeat;
+        background-position-x: 580px;
         background-position-y: -60px;
         height: 100vh;
         width: 100vw;
@@ -159,7 +157,7 @@
         position: relative;
         flex: 1 1 0;
         width: 100%;
-        margin: 10px 0;
+        margin:0 0 30px
     }
     .input-container:first-of-type{
         margin-right: 20px;
@@ -267,7 +265,7 @@
         background-color: rgba(255,255,255,.1);
         padding: 8px 6px;
         line-height: 20px;
-        top: -4px;
-        position: relative;
+        bottom: -30px;
+        position: absolute;
     }
 </style>

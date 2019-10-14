@@ -21,15 +21,26 @@
 <script>
     export default {
         name: 'Intro',
-        props: ['starDensity','shootingStarDensity','screenSize'],
+        props: ['starDensity','shootingStarDensity'],
         data: function () {
             return {
-                stars: [],
                 milkyStars: [],
-                shootingStars: []
+                shootingStars: [],
+                screenSize : null
             }
         },
         methods: {
+            screenSizeCalc() {
+                const height = window.innerHeight;
+                const width = window.innerWidth;
+                let screenSize = null;
+                if (height >= width) {
+                    screenSize = height;
+                } else {
+                    screenSize = width;
+                }
+                this.screenSize = screenSize;
+            },
             milkyStarLoader() {
                 const numberOfStars = 100 * this.starDensity;
                 for (let i = 0; i < numberOfStars; i++) {
@@ -37,7 +48,7 @@
                     const topPx = Math.random() * this.screenSize+ 'px';
                     const leftPx = Math.random() * this.screenSize + 'px';
 
-                    if(i%10 ==0){
+                    if(i%15 ==0){
                         size = '5px';
                     }
 
@@ -69,6 +80,7 @@
             }
         },
         beforeMount() {
+            this.screenSizeCalc();
             this.milkyStarLoader();
             this.shootingStarLoader();
         }
@@ -76,7 +88,7 @@
 </script>
 <style scoped>
     #intro {
-        background: url('../assets/stars.png') no-repeat bottom center fixed;
+        background: url('../assets/images/stars.png') no-repeat bottom center fixed;
         background-size: cover;
         position: relative;
         overflow: hidden;

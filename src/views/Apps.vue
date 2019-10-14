@@ -40,7 +40,7 @@
 
 <style scoped>
     #applications {
-        background: url('../assets/galaxy3.jpg') no-repeat bottom center fixed;
+        background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
         background-size: cover;
         position: relative;
     }
