@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <MainMenu :menuItems="pages"/>
+        <MainMenu :menuItems="pages"  @inView="inView($event)"/>
         <Intro :starDensity="10" :shooting-star-density="1"/>
         <Apps :applications="apps"/>
-        <Skills></Skills>
+        <Skills :skills="skills" :pageInView="skillsPageInView"></Skills>
         <Contact></Contact>
         <Footer></Footer>
     </div>
@@ -30,43 +30,61 @@
         },
         data() {
             return {
+                skillsPageInView:false,
                 pages: [
                     {title: 'About Me', url: '#intro'},
                     {title: 'applications', url: '#applications'},
                     {title: 'technical skills', url: '#tech-skills'},
                     {title: 'contact me', url: '#contact'}
-                ]
-                ,
+                ],
                 apps: [
                     {
                         title: 'iBet',
-                        videoUrl: require('./videos/iBet.mp4'),
+                        videoUrl: require('./assets/videos/iBet.mp4'),
                         gitUrl: '#gitDemo1',
                         url: '#demo1',
                         info: 'A mobile friendly web application that allows for a user to create an account and make simulated sports bets with real odds. Results are logged and graphed under that account so that long term results can be analyzed.'
                     },
                     {
                         title: 'Moduulis',
-                        videoUrl: require('./videos/moduulis.mp4'),
+                        videoUrl: require('./assets/videos/moduulis.mp4'),
                         gitUrl: '#gitDemo2',
                         url: '#demo2',
                         info: 'A WordPress based mobile friendly e-commerce (Woocomerce) website built around customizable snack stadiums. The site includes a blog, a vlog and a functional store.'
                     },
                     {
                         title: 'Tic Tac Remix',
-                        videoUrl: require('./videos/tictacremix.mp4'),
+                        videoUrl: require('./assets/videos/tictacremix.mp4'),
                         gitUrl: '#gitDemo3',
                         url: '#demo3',
                         info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s turn adds layers of music to the playing sound track.'
                     },
                     {
                         title: 'Reading For Dummies',
-                        videoUrl: require('./videos/reading.mp4'),
+                        videoUrl: require('./assets/videos/reading.mp4'),
                         gitUrl: '#gitDemo4',
                         url: '#demo4',
                         info: ' The average person reads at about 300 words per a minute, however by removing the need to move your eyes you can read much faster. Take a look at this app that helps slow readers like myself read at amazingly high speeds!'
                     }
+                ],
+                skills:[
+                    {skill: 'Vue.js', logoPic: require('./assets/logo/vue.png')},
+                    {skill: 'JavaScript', logoPic: require('./assets/logo/JavaScript.png')},
+                    {skill:'jQuery', logoPic: require('./assets/logo/jQuery.png')},
+                    {skill:'HTML', logoPic: require('./assets/logo/HTML5.png')},
+                    {skill:'CSS', logoPic: require('./assets/logo/CSS3.png')},
+                    {skill:'Sass', logoPic:require('./assets/logo/Sass.png')},
+                    {skill:'php', logoPic:require('./assets/logo/php.png')},
+                    {skill:'Foundation', logoPic:require('./assets/logo/Foundation.png')},
+                    {skill:'BootStrap', logoPic:require('./assets/logo/Bootstrap.png')},
+                    {skill:'git', logoPic:require('./assets/logo/git.png')},
+                    {skill:'WordPress', logoPic:require('./assets/logo/WordPress.png')}
                 ]
+            }
+        },
+        methods:{
+            inView($event){
+                this.skillsPageInView = $event;
             }
         }
     }
@@ -81,12 +99,6 @@
         text-align: center;
         height: 100vh;
         overflow-y: hidden;
-    }
-    #tech-skills{
-        margin-top: -42px;
-    }
-    #contact{
-        margin-top: 1px;
     }
     .page_title{
         font-size: 50px;
@@ -113,6 +125,7 @@
     section {
         height: 100vh;
         width: 100vw;
+        position: relative;
     }
 
     .page-title {

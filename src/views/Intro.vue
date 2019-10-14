@@ -88,7 +88,7 @@
 </script>
 <style scoped>
     #intro {
-        background: url('../assets/stars.png') no-repeat bottom center fixed;
+        background: url('../assets/images/stars.png') no-repeat bottom center fixed;
         background-size: cover;
         position: relative;
         overflow: hidden;
