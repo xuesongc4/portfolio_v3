@@ -6,14 +6,17 @@
                 <div class="list-container">
                     <h2 class="page-title">Tech Skills</h2>
                     <ul class="tech-skills-list">
-                        <li v-for="(skill, index) in skillList" :key="index">{{skill.skill}}</li>
+                        <li v-for="(skill, index) in skillList" :key="index" @mouseover="mouseOnList(index)" @mouseleave="mouseOffList(index)" :class="{'active':skill.active}">{{skill.skill}}</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div id="skills-board" :class="{'slideInRight':slideInRight}">
-            <div v-for="(skill, index) in skillList" :key="index" class="skills-block" :class="{'dark':lightOrDarkSquare(index) !== -1}">
-                <img :src="skill.logoPic" :alt="skill.skill">
+            <div v-for="(skill, index) in skillList" :key="index" class="skills-block" :class="{'active':skill.active}">
+                <div class="skills-block-front"  :class="{'dark':lightOrDarkSquare(index) !== -1}">
+                    <img :src="skill.logoPic" :alt="skill.skill">
+                </div>
+                <div class="skills-block-back"></div>
             </div>
             <div class="skills-block dark"></div>
         </div>
@@ -35,6 +38,12 @@
         methods:{
             lightOrDarkSquare($index){
                 return this.lightSquaresData.indexOf($index)
+            },
+            mouseOnList($index){
+                this.skillList[$index].active = true;
+            },
+            mouseOffList($index){
+                this.skillList[$index].active = false;
             }
         },
         watch: {
@@ -95,7 +104,7 @@
         cursor: pointer;
         transition-duration: .3s;
     }
-    li:hover{
+    li.active{
         padding-left: 50px;
         text-shadow: 2px 2px 10px white;
     }
@@ -111,16 +120,41 @@
         display:flex;
         flex-wrap: wrap;
         transition-duration: .3s;
+        perspective: 1000px;
     }
     .skills-block{
         height: 33.33%;
         width: 25%;
-        background-color: #EA6C7C;
         margin: 0;
         font-size: 0;
+        transition-duration: 1s;
+        transform-style: preserve-3d;
+        position: relative;
+        background: transparent;
+    }
+    .skills-block-front{
+        background-color: #EA6C7C;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+    }
+    .skills-block-back{
+        background: url("../assets/images/red.jpg")bottom center no-repeat fixed;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+    }
+    .skills-block.active{
+        transform: rotateY(360deg);
+        box-shadow: 0 0 15px 3px white;
+        z-index: 100;
     }
     .skills-block img{
         width: 150px;
