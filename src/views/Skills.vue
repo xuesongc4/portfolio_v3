@@ -65,7 +65,8 @@
 
 <style scoped>
     #tech-skills{
-        background: url("../assets/images/galaxy3.jpg") bottom center no-repeat fixed;
+        background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
+        background-size: cover;
     }
     .page-title{
         color: white;
@@ -127,7 +128,6 @@
         width: 25%;
         margin: 0;
         font-size: 0;
-        transition-duration: 1s;
         transform-style: preserve-3d;
         position: relative;
         background: transparent;
@@ -146,15 +146,15 @@
         background: url("../assets/images/red.jpg")bottom center no-repeat fixed;
         height: 100%;
         width: 100%;
-        z-index: -1;
         position: absolute;
-        transform: rotateY(180deg);
+        transform: rotateZ(180deg) rotateY(180deg);
         backface-visibility: hidden;
     }
     .skills-block.active{
-        transform: rotateY(360deg);
+        transform: rotateY(360deg) scale(1.05);
         box-shadow: 0 0 15px 3px white;
         z-index: 100;
+        transition-duration: 1s;
     }
     .skills-block img{
         width: 150px;
