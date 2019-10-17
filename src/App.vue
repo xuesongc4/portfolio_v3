@@ -220,14 +220,24 @@
         }
     }
 
+    .display-none{
+        display: none;
+    }
+
     @media all and (min-width: 640px) {
         .hide-for-medium{
             display: none;
+        }
+        .show-for-medium{
+            display: block;
         }
     }
     @media all and (min-width: 1024px) {
         .hide-for-large{
             display: none;
+        }
+        .show-for-medium{
+            display: block;
         }
     }
 </style>

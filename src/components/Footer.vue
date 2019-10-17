@@ -2,7 +2,7 @@
     <footer>
         <div class="footer-container">
             <ul class="social">
-                <li>Connect with me on:</li>
+                <li class="show-for-medium display-none">Connect with me on:</li>
                 <li><a target="_blank" href="https://www.linkedin.com/in/jason-chen-619b2852"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                 <li><a target="_blank" href="https://www.facebook.com/profile.php?id=6026042"><i
                         class="fa fa-facebook"></i></a></li>
@@ -23,12 +23,13 @@
     footer{
         background-color: black;
         color: white;
-        bottom: 80px;
+        bottom: 40px;
         width: 100%;
-        height: 80px;
+        height: 40px;
         display: block;
         position: relative;
-        font-size: 28px;
+        font-size: 16px;
+        z-index: 2000;
     }
     .footer-container{
         position: absolute;
@@ -53,5 +54,19 @@
         display: flex;
         list-style: none;
     }
-
+    .resume{
+        padding-right: 32px;
+    }
+    @media all and (min-width: 640px) {
+        footer{
+            font-size: 20px;
+        }
+    }
+    @media all and (min-width: 1024px) {
+        footer{
+            font-size: 28px;
+            height: 80px;
+            bottom: 80px;
+        }
+    }
 </style>

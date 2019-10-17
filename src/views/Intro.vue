@@ -166,17 +166,16 @@
 
     @media all and (min-width: 640px) {
         h1{
-            font-size: 50px;
+            font-size: 36px;
         }
         h2{
             right: -100px;
-            top: 100px;
+            top: 60px;
             font-size: 24px;
         }
         .intro-title {
-            bottom: 40px;
-            right: 30%;
-            left: unset;
+            bottom: 50px;
+            left: 20%;
         }
         #milky-way {
             top: 40%;
@@ -206,7 +205,7 @@
         .intro-title {
             bottom: 40px;
             right: 30%;
-
+            left: unset;
         }
         #milky-way {
             height: 100vw;
