@@ -34,7 +34,7 @@
                 pages: [
                     {title: 'About Me', url: '#intro'},
                     {title: 'applications', url: '#applications'},
-                    {title: 'technical skills', url: '#tech-skills'},
+                    {title: 'tech skills', url: '#tech-skills'},
                     {title: 'contact me', url: '#contact'}
                 ],
                 apps: [
@@ -217,6 +217,17 @@
         }
         100% {
             opacity: 0;
+        }
+    }
+
+    @media all and (min-width: 640px) {
+        .hide-for-medium{
+            display: none;
+        }
+    }
+    @media all and (min-width: 1024px) {
+        .hide-for-large{
+            display: none;
         }
     }
 </style>

@@ -108,10 +108,10 @@
         right: 0;
         background-color: black;
         z-index: 1000;
-        font-size: 16px;
         text-transform: uppercase;
         padding: 20px;
-        opacity: .4;
+        opacity: .75;
+        font-size: 12px;
         transition-duration: .3s;
     }
     .menu:hover{
@@ -121,12 +121,12 @@
     ul {
         list-style: none;
         position: relative;
-        padding: 0 30px 50px;
+        padding: 0 0 30px 20px;
     }
 
     li {
         text-align: left;
-        padding: 24px 0
+        padding: 16px 0;
     }
 
     li:first-of-type {
@@ -150,13 +150,13 @@
     .selected {
         width: 0;
         height: 0;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        border-left: 16px solid white;
         position: absolute;
         left: 0;
         top: 0;
         transition-duration: 2s;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 10px solid white;
     }
 
     .mouse-arrow.mouse-down {
@@ -243,6 +243,25 @@
 
     .show {
         display: block;
+    }
+
+    @media all and (min-width: 1024px) {
+        ul {
+            padding: 0 30px 50px;
+        }
+
+        li {
+            padding: 24px 0
+        }
+        .menu{
+            font-size: 16px;
+            opacity: .4;
+        }
+        .selected {
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 16px solid white;
+        }
     }
 
 </style>

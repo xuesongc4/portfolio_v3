@@ -7,8 +7,8 @@
             <div v-for="(star, $index) in milkyStars" :style="star" :key="$index" class="milkyStar"></div>
         </div>
         <div class="intro-content">
-            <p class="item-1">Hey there! My name is Jason and I'm a web developer</p>
-            <p class="item-2">I enjoy spending time with my friends and family, watching sports, coding and...</p>
+            <p class="item-1">Hey there!<br class="hide-for-large"> My name is Jason<br class="hide-for-large"> and I'm a web developer</p>
+            <p class="item-2">I enjoy spending time with my<br class="hide-for-large"> friends and family,<br class="hide-for-large"> watching sports, coding and...</p>
             <p class="item-3">looking up at the stars...</p>
         </div>
         <div class="intro-title">
@@ -95,31 +95,35 @@
         background-color: white;
     }
     h1{
-        font-size: 50px;
+        display: inline-block;
+        font-size: 28px;
     }
     h2{
         position: absolute;
-        right: -100px;
-        top: 100px;
+        display: inline-block;
+        right: -40px;
+        top: 60px;
+        font-size: 16px;
     }
 
     .intro-content {
         position: absolute;
         left: 50%;
-        top: 20%;
+        top: 10%;
         transform: translateX(-50%);
-        font-size: 26px;
+        font-size: 24px;
+        line-height: 1.3;
         z-index: 10;
+        background-color: rgba(255,255,255,.65);
     }
 
     .intro-title {
         position: absolute;
-        bottom: 40px;
-        right: 30%;
         color: #A42327;
         z-index: 10;
+        bottom: 40px;
+        left: 5%;
     }
-
     .item-1, .item-2, .item-3{
         white-space: nowrap;
         opacity: 0;
@@ -146,17 +150,75 @@
         height: 40vw;
         width: 20vw;
         position: absolute;
-        top: -65%;
-        left: 45%;
         transform: rotate(145deg);
+        top: 0%;
+        left: 100%;
     }
     #milky-way{
-        height: 100vw;
-        width: 100vw;
+        height: 200vw;
+        width: 200vw;
         position: absolute;
         top:50%;
         left: 50%;
         animation: spinningSky linear 240s infinite;
         transform-origin: center center;
     }
+
+    @media all and (min-width: 640px) {
+        h1{
+            font-size: 50px;
+        }
+        h2{
+            right: -100px;
+            top: 100px;
+            font-size: 24px;
+        }
+        .intro-title {
+            bottom: 40px;
+            right: 30%;
+            left: unset;
+        }
+        #milky-way {
+            top: 40%;
+            height: 100vw;
+            width: 100vw;
+        }
+        #shooting-star-landing {
+            top: -10%;
+            left: 75%;
+        }
+        .intro-content {
+            font-size: 26px;
+        }
+    }
+
+    @media all and (min-width: 1024px) {
+        h1{
+            font-size: 50px;
+        }
+        h2{
+            right: -100px;
+            top: 100px;
+        }
+        .intro-content{
+            top: 20%;
+        }
+        .intro-title {
+            bottom: 40px;
+            right: 30%;
+
+        }
+        #milky-way {
+            height: 100vw;
+            width: 100vw;
+            top: 50%;
+        }
+        #shooting-star-landing {
+            top: -35%;
+            left: 60%;
+        }
+    }
+
+
+
 </style>
