@@ -110,6 +110,10 @@
         border-left: 5px solid red !important;
     }
 
+    input, textarea{
+        font-family: Helvetica, sans-serif;
+    }
+
     .map-bg {
         background: url("../assets/images/map.png") center center no-repeat;
         background-size: cover;
@@ -120,34 +124,24 @@
         bottom: 0;
     }
 
-    .stars-bg {
-        background: url("../assets/images/stars-bg2.png") no-repeat;
-        background-position-x: 580px;
-        background-position-y: -60px;
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-        bottom: 0;
-    }
-
     #contact {
         position: relative;
     }
 
     .contact-form-container {
-        width: 70%;
+        width: 85%;
         margin: auto;
     }
 
     .contact-form {
-        max-width: 1000px;
-        width: 100%;
+        max-width: 950px;
+        width: 90%;
         border: 5px solid #A42327;
         border-radius: 20px;
         background-color: rgba(0, 0, 0, .5);
         position: absolute;
         top: 35%;
-        left: 42%;
+        left: 50%;
         transform: translate(-50%, -30%);
         font-size: 20px;
         box-shadow: 0 0 50px 5px black;
@@ -157,10 +151,10 @@
         position: relative;
         flex: 1 1 0;
         width: 100%;
-        margin:0 0 30px
+        margin:0 0 15px
     }
     .input-container:first-of-type{
-        margin-right: 20px;
+        margin-right: 0;
     }
     .textarea-container{
          position: relative;
@@ -169,7 +163,7 @@
     }
 
     .input-row {
-        display: flex;
+        display: block;
     }
 
     .input-row input, .textarea-container textarea {
@@ -180,18 +174,19 @@
 
     .contact-form .page_title {
         margin-top: 30px;
+        margin-bottom: 30px;
         color: white;
     }
 
     .contact-form img {
-        height: 170px;
+        height: 150px;
         width: auto;
         border-radius: 50%;
         border: 5px solid #A42327;
         background-color: white;
         background-color: rgba(255, 255, 255, .7);
-        display: block;
         margin: 20px auto;
+        display: none;
     }
 
     .form-control {
@@ -210,7 +205,7 @@
 
     ::placeholder {
         color: dimgray;
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .textarea-control {
@@ -218,13 +213,13 @@
     }
 
     .contact-form .button-container {
-        text-align: center;
+        text-align: left;
     }
 
     .contact-form .submit {
         padding: 16px 0;
         width: 100%;
-        max-width: 200px;
+        max-width: 150px;
         font-size: 16px;
         background-color: black;
         border-radius: 5px;
@@ -232,7 +227,7 @@
         cursor: pointer;
         transition-duration: .3s;
         border: 2px solid rgba(255, 255, 255, .3);
-        margin: 20px 0 60px;
+        margin: 6px 0 30px;
     }
 
     .contact-form .submit:hover {
@@ -268,4 +263,69 @@
         bottom: -30px;
         position: absolute;
     }
+    .page_title{
+        font-size: 32px;
+    }
+    @media all and (min-width: 640px) {
+        .contact-form-container {
+            width: 70%;
+            margin: auto;
+        }
+        .input-container {
+            flex: 1 1 0;
+            margin:0 0 10px
+        }
+        .input-container:first-of-type{
+            margin-right: 20px;
+        }
+
+        .input-row {
+            display: flex;
+        }
+        .contact-form .button-container {
+            text-align: center;
+        }
+        .contact-form .submit {
+            max-width: 200px;
+            margin: 10px 0 60px;
+        }
+    }
+
+    @media all and (min-width: 1024px) {
+        .contact-form {
+            left: 42%;
+        }
+        .page_title{
+            font-size: 50px;
+        }
+        .contact-form img{
+            height: 170px;
+        }
+    }
+
+    @media all and (min-width: 1350px) {
+        .stars-bg {
+            background: url("../assets/images/stars-bg2.png") no-repeat center bottom;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    @media all and (min-height: 668px) {
+        #contact{
+            overflow: hidden;
+        }
+       .contact-form img{
+            display: block;
+       }
+        .contact-form .page_title {
+            margin-bottom: 0;
+        }
+        .contact-form .submit{
+            margin: 10px 0 60px;
+        }
+    }
+
 </style>

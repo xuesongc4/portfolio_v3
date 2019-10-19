@@ -103,8 +103,7 @@
         font-family: Helvetica, sans-serif;
         font-size: 20px;
         text-align: center;
-        height: 100vh;
-        overflow-y: hidden;
+        height: 667px;
     }
     .page_title{
         font-size: 50px;
@@ -137,10 +136,6 @@
     .page-title {
         font-size: 50px;
         font-weight: 700;
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
     }
 
     @keyframes twinkle {
@@ -220,13 +215,33 @@
         }
     }
 
+    .display-none{
+        display: none;
+    }
+
     @media all and (min-width: 640px) {
         .hide-for-medium{
             display: none;
         }
+        .show-for-medium{
+            display: block;
+        }
     }
     @media all and (min-width: 1024px) {
         .hide-for-large{
+            display: none;
+        }
+        .show-for-medium{
+            display: block;
+        }
+    }
+
+    @media all and (min-height: 667px) {
+       #app{
+           height: 100vh;
+           overflow-y: hidden;
+       }
+        ::-webkit-scrollbar {
             display: none;
         }
     }

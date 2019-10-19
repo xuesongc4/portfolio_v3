@@ -15,6 +15,9 @@
             <h1>Jason Chen</h1>
             <h2>&lt;web_developer&gt;</h2>
         </div>
+        <div class="disclaimer">
+            For best viewing experience please view on fullscreen.
+        </div>
     </section>
 </template>
 
@@ -105,7 +108,13 @@
         top: 60px;
         font-size: 16px;
     }
-
+    .disclaimer{
+        font-size: 14px;
+        color: black;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
     .intro-content {
         position: absolute;
         left: 50%;
@@ -166,17 +175,16 @@
 
     @media all and (min-width: 640px) {
         h1{
-            font-size: 50px;
+            font-size: 36px;
         }
         h2{
             right: -100px;
-            top: 100px;
+            top: 60px;
             font-size: 24px;
         }
         .intro-title {
-            bottom: 40px;
-            right: 30%;
-            left: unset;
+            bottom: 50px;
+            left: 20%;
         }
         #milky-way {
             top: 40%;
@@ -193,6 +201,14 @@
     }
 
     @media all and (min-width: 1024px) {
+        .disclaimer{
+            font-size: 16px;
+            color: white;
+            opacity: .5;
+            top: unset;
+            bottom: 10px;
+            left: 10px;
+        }
         h1{
             font-size: 50px;
         }
@@ -206,7 +222,7 @@
         .intro-title {
             bottom: 40px;
             right: 30%;
-
+            left: unset;
         }
         #milky-way {
             height: 100vw;
@@ -214,11 +230,8 @@
             top: 50%;
         }
         #shooting-star-landing {
-            top: -35%;
-            left: 60%;
+            top: -60%;
+            left: 50%;
         }
     }
-
-
-
 </style>
