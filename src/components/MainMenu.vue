@@ -64,10 +64,13 @@
 
             },
             handleScroll($event) {
-                if ($event.deltaY < 0 && this.arrowPosition !== 0) {
-                    document.getElementById("up-arrow").click();
-                } else if ($event.deltaY > 0 && this.arrowPosition !== 75) {
-                    document.getElementById("down-arrow").click();
+                let windowHeightBreakPoint = 667;
+                if(window.innerHeight >= windowHeightBreakPoint){
+                    if ($event.deltaY < 0 && this.arrowPosition !== 0) {
+                        document.getElementById("up-arrow").click();
+                    } else if ($event.deltaY > 0 && this.arrowPosition !== 75) {
+                        document.getElementById("down-arrow").click();
+                    }
                 }
             }
         },
@@ -113,6 +116,7 @@
         opacity: .75;
         font-size: 12px;
         transition-duration: .3s;
+        display: none;
     }
     .menu:hover{
         opacity: .75;
@@ -159,8 +163,11 @@
         border-left: 10px solid white;
     }
 
-    .mouse-arrow.mouse-down {
+    .mouse-arrow{
         position: absolute;
+        display: none;
+    }
+    .mouse-arrow.mouse-down {
         left: 50%;
         bottom: 40px;
     }
@@ -241,9 +248,14 @@
         cursor: pointer;
     }
 
+    #down-arrow, #up-arrow{
+        display: none;
+    }
+
     .show {
         display: block;
     }
+
 
     @media all and (min-width: 1024px) {
         ul {
@@ -261,6 +273,15 @@
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
             border-left: 16px solid white;
+        }
+    }
+
+    @media all and (min-height: 668px) {
+        .menu{
+            display: block;
+        }
+        #down-arrow, #up-arrow{
+            display: block;
         }
     }
 

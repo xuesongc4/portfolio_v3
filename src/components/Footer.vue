@@ -66,7 +66,7 @@
         footer{
             font-size: 28px;
             height: 80px;
-            bottom: 80px;
+            bottom: 75px;
         }
     }
 </style>

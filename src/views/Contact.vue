@@ -174,6 +174,7 @@
 
     .contact-form .page_title {
         margin-top: 30px;
+        margin-bottom: 30px;
         color: white;
     }
 
@@ -184,8 +185,8 @@
         border: 5px solid #A42327;
         background-color: white;
         background-color: rgba(255, 255, 255, .7);
-        display: block;
         margin: 20px auto;
+        display: none;
     }
 
     .form-control {
@@ -309,6 +310,21 @@
             width: 100vw;
             position: absolute;
             bottom: 0;
+        }
+    }
+
+    @media all and (min-height: 668px) {
+        #contact{
+            overflow: hidden;
+        }
+       .contact-form img{
+            display: block;
+       }
+        .contact-form .page_title {
+            margin-bottom: 0;
+        }
+        .contact-form .submit{
+            margin: 10px 0 60px;
         }
     }
 
