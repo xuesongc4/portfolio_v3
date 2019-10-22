@@ -5,7 +5,6 @@
         <Apps :applications="apps"/>
         <Skills :skills="skills" :pageInView="skillsPageInView"></Skills>
         <Contact></Contact>
-        <Footer></Footer>
     </div>
 </template>
 
@@ -15,7 +14,6 @@
     import Apps from './views/Apps'
     import Skills from './views/Skills'
     import Contact from "./views/Contact";
-    import Footer from './components/Footer'
 
     export default {
         name: 'app',
@@ -24,9 +22,7 @@
             MainMenu,
             Apps,
             Skills,
-            Contact,
-            Footer
-
+            Contact
         },
         data() {
             return {
@@ -137,7 +133,9 @@
         font-size: 50px;
         font-weight: 700;
     }
-
+    .mobile-warning{
+        display: none;
+    }
     @keyframes twinkle {
         0% {
             transform: scale(1, 1);
@@ -243,6 +241,26 @@
        }
         ::-webkit-scrollbar {
             display: none;
+        }
+    }
+    @media screen and (max-width: 812px) and (orientation: landscape) {
+        #app{
+            display: none;
+        }
+        .mobile-warning{
+            display: block;
+            padding: 20px;
+            font-size: 20px;
+        }
+    }
+    @media screen and (max-height: 500px){
+        #app{
+            display: none;
+        }
+        .mobile-warning{
+            display: block;
+            padding: 20px;
+            font-size: 20px;
         }
     }
 </style>

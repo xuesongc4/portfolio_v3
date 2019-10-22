@@ -121,8 +121,9 @@
 
     .info-container {
         position: absolute;
-        right: 450px;
-        top: 150px;
+        right: 5%;
+        top: 85px;
+        z-index: 10000;
     }
 
     #info {
@@ -233,4 +234,49 @@
     #info.vertical {
         height: 460px;
     }
+
+
+    @media all and (min-height: 667px) {
+
+    }
+
+
+    @media all and (min-width: 1024px) {
+        .info-container {
+            right: 15%;
+            top: 150px;
+        }
+    }
+
+    @media all and (min-width: 1300px) {
+        .info-container {
+            right: 15%;
+        }
+    }
+
+    @media all and (min-width: 1700px) {
+        .info-container {
+            right: calc(300px + 5%);
+        }
+    }
+
+    @media all and (max-width: 640px) {
+        #info.horizontal {
+            width: 90vw;
+        }
+        #info{
+            background: rgba(255,255,255,.8);
+        }
+        .bubble{
+            border: 1px solid black;
+        }
+        .bubble.selected {
+            border-width: 1px;
+            box-shadow: none;
+            background-color: rgba(0,0,0,.75);
+            pointer-events: none;
+        }
+
+    }
+
 </style>

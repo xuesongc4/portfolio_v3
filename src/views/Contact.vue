@@ -50,12 +50,17 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </section>
 </template>
 
 <script>
+    import Footer from '../components/Footer'
     export default {
         name: "Contact",
+        components: {
+          Footer
+        },
         data() {
             return {
                 form: {
@@ -126,6 +131,7 @@
 
     #contact {
         position: relative;
+        overflow: hidden;
     }
 
     .contact-form-container {

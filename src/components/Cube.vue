@@ -267,15 +267,25 @@
         cursor: pointer;
     }
 
-    @media only screen and (max-width: 1024px) {
 
-        #application .cube {
-            top: 180px;
+    @media all and (max-width: 1024px) {
+        .cube-container {
+            top: 200px;
+            width: 150px;
+            height: 150px;
+        }
+        video{
+            width: 275%;
+        }
+
+        #cube .cube-side {
+            font-size: 16px;
+            line-height: 28px;
         }
 
         #cube .front, #cube .right, #cube .left, #cube .back {
-            height: 180px;
-            width: 180px;
+            height: 150px;
+            width: 150px;
         }
 
         #cube .front {
@@ -293,44 +303,26 @@
         #cube .back {
             transform: rotateY(180deg) translateZ(150px)
         }
-
-        .zoom-front {
-            transform: rotateY(0deg) translateZ(280px) !important;
-        }
-
-        .zoom-right {
-            transform: rotateY(90deg) translateZ(280px) !important;
-        }
-
-        .zoom-back {
-            transform: rotateY(180deg) translateZ(280px) !important;
-        }
-
-        .zoom-left {
-            transform: rotateY(-90deg) translateZ(280px) !important;
-        }
-
     }
 
-    @media only screen and (max-width: 767px) {
-        #application .cube {
-            top: 105px;
+    @media all and (max-width: 767px) {
+        .cube-side.front.highlight {
+            transform: rotateY(0deg) translateZ(500px) !important;
         }
 
-        .zoom-front {
-            transform: rotateY(0deg) translateZ(550px) !important;
+        .cube-side.right.highlight  {
+            transform: rotateY(90deg) translateZ(500px) !important;
         }
 
-        .zoom-right {
-            transform: rotateY(90deg) translateZ(550px) !important;
+        .cube-side.back.highlight  {
+            transform: rotateY(180deg) translateZ(500px) !important;
         }
 
-        .zoom-back {
-            transform: rotateY(180deg) translateZ(550px) !important;
-        }
-
-        .zoom-left {
-            transform: rotateY(-90deg) translateZ(550px) !important;
+        .cube-side.left.highlight  {
+            transform: rotateY(-90deg) translateZ(500px) !important;
         }
     }
+
+
+
 </style>
