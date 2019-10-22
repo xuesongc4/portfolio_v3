@@ -35,18 +35,16 @@
                 ],
                 apps: [
                     {
-                        title: 'iBet',
-                        videoUrl: require('./assets/videos/iBet.mp4'),
-                        gitUrl: '#gitDemo1',
-                        url: '#demo1',
-                        info: 'A mobile friendly web application that allows for a user to create an account and make simulated sports bets with real odds. Results are logged and graphed under that account so that long term results can be analyzed.'
+                        title: 'Tar Football',
+                        videoUrl: require('./assets/videos/tar.mp4'),
+                        url: 'https://www.tarfootball.com',
+                        info: 'A WordPress and Shopify site for the Newport Harbor High School Football Team. The website covers all the latest happenings for the team and helps raise money for the kids through sponsorship and the store. Go Tars!'
                     },
                     {
-                        title: 'Moduulis',
-                        videoUrl: require('./assets/videos/moduulis.mp4'),
-                        gitUrl: '#gitDemo2',
-                        url: '#demo2',
-                        info: 'A WordPress based mobile friendly e-commerce (Woocomerce) website built around customizable snack stadiums. The site includes a blog, a vlog and a functional store.'
+                        title: 'Just Food For Dogs',
+                        videoUrl: require('./assets/videos/jffd.mp4'),
+                        url: 'https://www.justfoodfordogs.com/',
+                        info: 'A Nop Commerce based website where I handled a majority of the front end development. The site had some interesting client requests that made for a fun and challenging build. I also love dogs!'
                     },
                     {
                         title: 'Tic Tac Remix',

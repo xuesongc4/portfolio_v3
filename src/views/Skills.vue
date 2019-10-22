@@ -78,11 +78,11 @@
         transform: translateX(-50%);
     }
     #skills-list{
-        width: 50%;
+        width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
-        left: -50%;
+        left: 0;
         background: url("../assets/images/coding.jpg") center center no-repeat;
         background-size: cover;
         color: white;
@@ -96,21 +96,21 @@
     }
     .tech-skills-list{
         text-align: left;
-        width: 500px;
-        columns:2;
+        width: 350px;
+        columns:1;
     }
     li{
-        font-size: 28px;
-        padding: 8px;
+        font-size: 20px;
+        padding: 4px;
         cursor: pointer;
         transition-duration: .3s;
     }
     li.active{
-        padding-left: 50px;
+        padding-left: 25px;
         text-shadow: 2px 2px 10px white;
     }
     .list-container{
-        padding: 60px;
+        padding: 60px 30px;
     }
     #skills-board{
         width: 50%;
@@ -118,10 +118,10 @@
         position: absolute;
         top: 0;
         right: -50%;
-        display:flex;
         flex-wrap: wrap;
         transition-duration: .3s;
         perspective: 1000px;
+        display: none;
     }
     .skills-block{
         height: 33.33%;
@@ -157,7 +157,7 @@
         transition-duration: 1s;
     }
     .skills-block img{
-        width: 150px;
+        width: 50px;
     }
     .dark{
         background-color: #a42327;
@@ -167,5 +167,47 @@
     }
     #skills-board.slideInRight{
         right: 0;
+    }
+
+    @media all and (min-width: 640px) {
+        .tech-skills-list{
+            columns:2;
+        }
+    }
+
+    @media all and (min-width: 768px) {
+        #skills-board{
+         display: flex;
+        }
+        #skills-list{
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: -50%;
+        }
+    }
+
+    @media all and (min-width: 1024px) {
+        .tech-skills-list{
+            width: 500px;
+        }
+        li{
+            font-size: 28px;
+            padding: 8px;
+        }
+        li.active{
+            padding-left: 50px;
+        }
+        .skills-block img{
+            width: 100px;
+        }
+    }
+    @media all and (min-width: 1300px) {
+        .list-container{
+            padding: 60px 60px;
+        }
+        .skills-block img{
+            width: 150px;
+        }
     }
 </style>

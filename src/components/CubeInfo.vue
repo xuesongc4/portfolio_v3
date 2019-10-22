@@ -11,7 +11,7 @@
                     </p>
                     <div class="links" :class="[{'show': (sideShow === index && bubble === true) } ]">
                         <a class="button link" target="_blank" :href="info.url">Live Site</a>
-                        <a class="button github" target="_blank" :href="info.gitUrl">GitHub</a>
+                        <a v-if="info.gitUrl" class="button github" target="_blank" :href="info.gitUrl">GitHub</a>
                     </div>
                 </div>
             </div>
