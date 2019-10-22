@@ -47,8 +47,17 @@
 
     .caption {
         position: absolute;
-        bottom: 100px;
-        left: 15%;
         color: white;
+        bottom: 30%;
+        left: 5%;
     }
+
+    @media all and (min-width: 1024px) {
+        .caption {
+            bottom: 100px;
+            left: 15%;
+        }
+    }
+
+
 </style>

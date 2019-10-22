@@ -23,13 +23,13 @@
     footer{
         background-color: black;
         color: white;
-        bottom: 40px;
         width: 100%;
         height: 40px;
         display: block;
-        position: relative;
+        position: absolute;
         font-size: 16px;
         z-index: 2000;
+        bottom: -6px;
     }
     .footer-container{
         position: absolute;
@@ -66,7 +66,6 @@
         footer{
             font-size: 28px;
             height: 80px;
-            bottom: 75px;
         }
     }
 </style>

@@ -199,6 +199,12 @@
             font-size: 26px;
         }
     }
+    @media all and (max-height: 450px) {
+        .intro-content {
+            font-size: 18px;
+            line-height: 1.1;
+        }
+    }
 
     @media all and (min-width: 1024px) {
         .disclaimer{

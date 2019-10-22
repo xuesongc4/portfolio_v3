@@ -276,7 +276,7 @@
         }
     }
 
-    @media all and (min-height: 668px) {
+    @media all and (min-height: 667px) {
         .menu{
             display: block;
         }
