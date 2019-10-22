@@ -27,7 +27,7 @@
         height: 40px;
         display: block;
         position: absolute;
-        font-size: 16px;
+        font-size: 12px;
         z-index: 2000;
         bottom: -6px;
     }
@@ -57,9 +57,10 @@
     .resume{
         padding-right: 32px;
     }
-    @media all and (min-width: 640px) {
+
+    @media all and (min-width: 400px) {
         footer{
-            font-size: 20px;
+            font-size: 18px;
         }
     }
     @media all and (min-width: 1024px) {
