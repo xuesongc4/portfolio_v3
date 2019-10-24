@@ -36,7 +36,7 @@
                                     {{form.errorMessage.message}}</div>
                             </div>
                             <div class="button-container">
-                                <button class="submit" type="submit" name="submit">
+                                <button class="submit" type="submit">
                                         SEND
                                 </button>
                             </div>
@@ -81,12 +81,11 @@
         },
         methods: {
             onSubmit($event) {
-                $event.preventDefault();
                 this.form.errorMessage.name = this.form.errorMessage.email = this.form.errorMessage.message = this.form.error.name = this.form.error.email = this.form.error.message = "";
 
                 if (this.form.value.message && this.form.value.name && this.form.value.email) {
                     this.form.ready = true;
-                    document.getElementById("form").submit();
+                    return true
                 } else {
                     if (!this.form.value.name) {
                         this.form.errorMessage.name = "Please enter your name";
@@ -100,6 +99,7 @@
                         this.form.errorMessage.message = "Please enter a message"
                         this.form.error.message = "error";
                     }
+                    $event.preventDefault();
                 }
             }
         }
