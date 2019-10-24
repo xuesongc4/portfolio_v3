@@ -8,7 +8,7 @@
                         class="fa fa-facebook"></i></a></li>
                 <li><a target="_blank" href="https://github.com/xuesongc4"><i class="fa fa-github"></i></a></li>
             </ul>
-            <div class="resume"><a target="_blank" href="documents/resume.pdf">Check out my Resume</a></div>
+            <div class="resume"><a target="_blank" href="../assets/documents/resume.pdf">Check out my Resume</a></div>
         </div>
     </footer>
 </template>

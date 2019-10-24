@@ -49,16 +49,16 @@
                     {
                         title: 'Tic Tac Remix',
                         videoUrl: require('./assets/videos/tictacremix.mp4'),
-                        gitUrl: '#gitDemo3',
-                        url: '#demo3',
-                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s turn adds layers of music to the playing sound track.'
+                        gitUrl: 'https://github.com/xuesongc4/tic-tac-remix2.0',
+                        url: 'https://tic-tac-remix.netlify.com/',
+                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s turn adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery'
                     },
                     {
                         title: 'Reading For Dummies',
                         videoUrl: require('./assets/videos/reading.mp4'),
-                        gitUrl: '#gitDemo4',
-                        url: '#demo4',
-                        info: ' The average person reads at about 300 words per a minute, however by removing the need to move your eyes you can read much faster. Take a look at this app that helps slow readers like myself read at amazingly high speeds!'
+                        gitUrl: 'https://github.com/xuesongc4/readings_for_dummies',
+                        url: 'https://reading-for-dummies.netlify.com/',
+                        info: ' The average person reads at about 300 words per a minute, however by removing the need to move your eyes you can read much faster. Take a look at this app that helps slow readers like myself read at amazingly high speeds! This app was created using vanilla js + jQuery'
                     }
                 ],
                 skills:[
