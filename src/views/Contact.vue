@@ -9,7 +9,7 @@
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/images/me_cartoon.png">
-                        <form @submit="onSubmit" name="contact" method="POST" data-netlify="true">
+                        <form id="form" @submit="onSubmit" name="contact" method="POST" data-netlify="true">
                             <div class="input-row">
                                 <div class="input-container">
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
@@ -86,6 +86,7 @@
 
                 if (this.form.value.message && this.form.value.name && this.form.value.email) {
                     this.form.ready = true;
+                    document.getElementById("form").submit();
                 } else {
                     if (!this.form.value.name) {
                         this.form.errorMessage.name = "Please enter your name";
