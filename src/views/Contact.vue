@@ -9,7 +9,7 @@
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/images/me_cartoon.png">
-                        <form @submit="onSubmit" action="POST" data-netlify="true">
+                        <form @submit="onSubmit" name="contact" method="POST" data-netlify="true">
                             <div class="input-row">
                                 <div class="input-container">
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
@@ -37,12 +37,7 @@
                             </div>
                             <div class="button-container">
                                 <button class="submit" type="submit" name="submit">
-                                    <div class="send">
                                         SEND
-                                    </div>
-                                    <div class="loader-container">
-                                        <div class="loader"></div>
-                                    </div>
                                 </button>
                             </div>
                         </form>
