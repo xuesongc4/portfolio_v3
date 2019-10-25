@@ -13,6 +13,7 @@
                             <div class="input-row">
                                 <div class="input-container">
                                     <input type="hidden" name="bot-field" />
+                                    <input type="hidden" name="form-name" value="contact" />
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
                                            v-model="form.value.name" :class="{ 'error': form.error.name === 'error'}"
                                            placeholder="Name*">
