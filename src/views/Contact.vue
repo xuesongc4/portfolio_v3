@@ -95,7 +95,7 @@
                     fetch('/', {
                         method: 'post',
                         headers: {
-                            'Content-Type': 'application/x-www-urlencoded'
+                            'Content-Type': 'application/x-www-form-urlencoded'
                         },
                         body: this.encode({
                             'form-name': 'contact',
