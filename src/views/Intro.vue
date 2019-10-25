@@ -16,7 +16,7 @@
             <h2>&lt;web_developer&gt;</h2>
         </div>
         <div class="disclaimer">
-            For best viewing experience please view on fullscreen.
+            For best viewing experience please view on a 1920x1080 window.
         </div>
     </section>
 </template>
@@ -110,7 +110,7 @@
     }
     .disclaimer{
         font-size: 14px;
-        color: black;
+        color: #A42327;
         position: absolute;
         top: 10px;
         left: 10px;
@@ -209,8 +209,6 @@
     @media all and (min-width: 1024px) {
         .disclaimer{
             font-size: 16px;
-            color: white;
-            opacity: .5;
             top: unset;
             bottom: 10px;
             left: 10px;
