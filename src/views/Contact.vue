@@ -5,14 +5,14 @@
             <div class="container">
                 <div class="contact-form">
                     <div class="page_title">
-                        Connect With Me
+                        Contact Me
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/images/me_cartoon.png">
-                        <form id="form" @submit="onSubmit" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <form id="form" @submit.prevent="onSubmit" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                             <div class="input-row">
                                 <div class="input-container">
-                                    <input type="hidden" name="form-name" value="ask-question" />
+                                    <input type="hidden" name="bot-field" />
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
                                            v-model="form.value.name" :class="{ 'error': form.error.name === 'error'}"
                                            placeholder="Name*">
@@ -77,16 +77,31 @@
                     },
                     ready: false
                 },
-                maxChar: 255
+                maxChar: 255,
+                submitError: '',
+                submitSuccess: '',
             }
         },
         methods: {
-            onSubmit($event) {
+            encode(data){
+                return Object.keys(data)
+                    .map(key => `${encodeURIComponent(key)} = ${encodeURIComponent(data[key])}`)
+                    .join('&')
+            },
+            onSubmit() {
                 this.form.errorMessage.name = this.form.errorMessage.email = this.form.errorMessage.message = this.form.error.name = this.form.error.email = this.form.error.message = "";
-
                 if (this.form.value.message && this.form.value.name && this.form.value.email) {
                     this.form.ready = true;
-                    return true
+                    fetch('/', {
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'application/x-www-urlencoded'
+                        },
+                        body: this.encode({
+                            'form-name': 'contact',
+                            ...this.form.value
+                        })
+                    }).then(()=> this.submitSuccess = "form successfully submitted").catch($e => this.submitError = $e);
                 } else {
                     if (!this.form.value.name) {
                         this.form.errorMessage.name = "Please enter your name";
@@ -100,7 +115,7 @@
                         this.form.errorMessage.message = "Please enter a message"
                         this.form.error.message = "error";
                     }
-                    $event.preventDefault();
+                    this.form.ready = false;
                 }
             }
         }

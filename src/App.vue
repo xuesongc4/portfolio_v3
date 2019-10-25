@@ -38,7 +38,7 @@
                         title: 'Tar Football',
                         videoUrl: require('./assets/videos/tar.mp4'),
                         url: 'https://www.tarfootball.com',
-                        info: 'The official website of the Newport Harbor High School Football Team. This custom WordPress site covers all of the latest happenings surrounding the team. The store is a shopify store with all of the hottest Tar merchandise. The sales and sponsorships generated between these sites allow the boys to keep playing hard! Go Tars!'
+                        info: 'The official website of the Newport Harbor High School Football Team. This custom WordPress site covers all of the latest happenings surrounding the team. The store is a Shopify store with all of the hottest Tar merchandise. The sales and sponsorships generated between these sites allow the boys to keep playing hard! Go Tars!'
                     },
                     {
                         title: 'Just Food For Dogs',
