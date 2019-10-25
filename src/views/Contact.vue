@@ -9,11 +9,10 @@
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/images/me_cartoon.png">
-                        <form id="form" @submit.prevent="onSubmit" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <form id="form" @submit.prevent="onSubmit" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action=/>
                             <div class="input-row">
                                 <div class="input-container">
                                     <input type="hidden" name="bot-field" />
-                                    <input type="hidden" name="form-name" value="contact" />
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
                                            v-model="form.value.name" :class="{ 'error': form.error.name === 'error'}"
                                            placeholder="Name*">
@@ -30,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="textarea-container">
-                                 <textarea name="body" rows='4' cols="25" type="text" :maxlength="maxChar"
+                                 <textarea name="message" rows='4' cols="25" type="text" :maxlength="maxChar"
                                            class="form-control textarea-control" v-model="form.value.message"
                                            :class="{'error': form.error.message === 'error'}"
                                            placeholder="Message*"></textarea>
@@ -86,7 +85,7 @@
         methods: {
             encode(data){
                 return Object.keys(data)
-                    .map(key => `${encodeURIComponent(key)} = ${encodeURIComponent(data[key])}`)
+                    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
                     .join('&')
             },
             onSubmit() {
