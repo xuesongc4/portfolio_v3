@@ -84,7 +84,7 @@
 <style scoped>
     .bubble-container {
         position: absolute;
-        bottom: 25px;
+        bottom: 5px;
         width: 100%;
         height: 50px;
         display: none;
@@ -134,7 +134,7 @@
         height: 0;
         width: 0;
         display: none;
-        font-size: 20px;
+        font-size: 18px;
         text-align: left;
         line-height: 1.3;
         transition: all .5s linear;
@@ -180,7 +180,7 @@
         transition-duration: .5s;
         position: absolute;
         margin: 10px 20px;
-        height: 80%;
+        height: 85%;
     }
 
     .close-button-container {
@@ -236,15 +236,13 @@
     }
 
 
-    @media all and (min-height: 667px) {
-
-    }
-
-
     @media all and (min-width: 1024px) {
         .info-container {
             right: 15%;
             top: 150px;
+        }
+        #info{
+            font-size: 20px;
         }
     }
 

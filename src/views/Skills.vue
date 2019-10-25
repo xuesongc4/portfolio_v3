@@ -148,7 +148,6 @@
         width: 100%;
         position: absolute;
         transform: rotateZ(180deg) rotateY(180deg);
-        backface-visibility: hidden;
     }
     .skills-block.active{
         transform: rotateY(360deg) scale(1.05);

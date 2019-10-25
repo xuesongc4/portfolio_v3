@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="mouse-arrow mouse-up" :class="{show : arrowPosition !== 0}">
-            <a id="up-arrow" class="scroll white" @click="pageDataTracker('up')"
+            <a id="up-arrow" class="scroll white" :class="{'disabled': arrowDisable}" @click="pageDataTracker('up')"
                v-smooth-scroll="{duration: 2000, container: '#app'}"
             ><span></span><span></span></a>
         </div>
         <div class="mouse-arrow mouse-down" :class="{show : arrowPosition !== 75}">
-            <a id="down-arrow" class="scroll white" @click="pageDataTracker('down')"
+            <a id="down-arrow" class="scroll white" :class="{'disabled': arrowDisable}" @click="pageDataTracker('down')"
                v-smooth-scroll="{duration: 2000, container: '#app'}"><span></span><span></span></a>
         </div>
         <div class="menu">
@@ -37,6 +37,7 @@
                 arrowPosition: 0,
                 upPage: "",
                 downPage: "",
+                arrowDisable: false
             }
         },
         methods: {
@@ -44,6 +45,7 @@
                 this.arrowPosition = $arrow * 25
             },
             pageDataTracker($direction) {
+                this.disableSpamClickArrow();
                 if ($direction === "up") {
                     if(this.arrowPosition === 25){
                         document.getElementById("menu#intro").click();
@@ -63,14 +65,21 @@
                 }
 
             },
+            disableSpamClickArrow(){
+                this.arrowDisable = true;
+                setTimeout(()=>this.arrowDisable=false,2000);
+            },
             handleScroll($event) {
                 let windowHeightBreakPoint = 667;
                 if(window.innerHeight >= windowHeightBreakPoint){
-                    if ($event.deltaY < 0 && this.arrowPosition !== 0) {
+                    if (($event.deltaY < 0) && (this.arrowPosition !== 0) && (this.arrowDisable==false)) {
                         document.getElementById("up-arrow").click();
-                    } else if ($event.deltaY > 0 && this.arrowPosition !== 75) {
+                        this.disableSpamClickArrow();
+                    } else if (($event.deltaY > 0) && (this.arrowPosition !== 75) && (this.arrowDisable==false)) {
                         document.getElementById("down-arrow").click();
+                        this.disableSpamClickArrow();
                     }
+
                 }
             }
         },
@@ -121,7 +130,9 @@
     .menu:hover{
         opacity: .75;
     }
-
+    .disabled{
+        pointer-events:none;
+    }
     ul {
         list-style: none;
         position: relative;

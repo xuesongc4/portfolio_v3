@@ -9,9 +9,10 @@
                     </div>
                     <div class="contact-form-container">
                         <img src="../assets/images/me_cartoon.png">
-                        <form id="form" @submit="onSubmit" name="contact" method="POST" data-netlify="true">
+                        <form id="form" @submit="onSubmit" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                             <div class="input-row">
                                 <div class="input-container">
+                                    <input type="hidden" name="form-name" value="ask-question" />
                                     <input type="text" name="name" :maxlength="maxChar" class="form-control"
                                            v-model="form.value.name" :class="{ 'error': form.error.name === 'error'}"
                                            placeholder="Name*">
