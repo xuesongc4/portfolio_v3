@@ -101,7 +101,10 @@
                             'form-name': 'contact',
                             ...this.form.value
                         })
-                    }).then(()=> this.submitSuccess = "form successfully submitted").catch($e => this.submitError = $e);
+                    }).then(()=>{
+                        this.submitSuccess = "form successfully submitted"
+                        window.location.href='/thankyou'
+                    }).catch($e => this.submitError = $e);
                 } else {
                     if (!this.form.value.name) {
                         this.form.errorMessage.name = "Please enter your name";
