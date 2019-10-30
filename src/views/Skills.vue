@@ -18,7 +18,9 @@
                 </div>
                 <div class="skills-block-back"></div>
             </div>
-            <div class="skills-block dark"></div>
+            <div class="skills-block">
+                <div class="skills-block-back"></div>
+            </div>
         </div>
     </section>
 </template>
@@ -133,7 +135,6 @@
         background: transparent;
     }
     .skills-block-front{
-        background-color: #EA6C7C;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -147,7 +148,7 @@
         height: 100%;
         width: 100%;
         position: absolute;
-        transform: rotateZ(180deg) rotateY(180deg);
+        z-index: -1;
     }
     .skills-block.active{
         transform: rotateY(360deg) scale(1.05);
@@ -157,9 +158,6 @@
     }
     .skills-block img{
         width: 50px;
-    }
-    .dark{
-        background-color: #a42327;
     }
     #skills-list.slideInLeft{
         left: 0;
