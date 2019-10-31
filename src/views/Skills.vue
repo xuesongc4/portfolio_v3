@@ -133,6 +133,8 @@
         transform-style: preserve-3d;
         position: relative;
         background: transparent;
+        border:1px solid black;
+        box-sizing: border-box;
     }
     .skills-block-front{
         display: flex;
