@@ -68,10 +68,10 @@
                     {skill: 'HTML', logoPic: require('./assets/logo/HTML5.png')},
                     {skill: 'CSS', logoPic: require('./assets/logo/CSS3.png')},
                     {skill: 'Sass', logoPic: require('./assets/logo/Sass.png')},
-                    {skill: 'php', logoPic: require('./assets/logo/php.png')},
+                    {skill: 'PHP', logoPic: require('./assets/logo/php.png')},
                     {skill: 'Foundation', logoPic: require('./assets/logo/Foundation.png')},
-                    {skill: 'BootStrap', logoPic: require('./assets/logo/Bootstrap.png')},
-                    {skill: 'git', logoPic: require('./assets/logo/git.png')},
+                    {skill: 'Bootstrap', logoPic: require('./assets/logo/Bootstrap.png')},
+                    {skill: 'Git', logoPic: require('./assets/logo/git.png')},
                     {skill: 'WordPress', logoPic: require('./assets/logo/WordPress.png')}
                 ]
             }
