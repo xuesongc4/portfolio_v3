@@ -40,7 +40,7 @@
 
 <style scoped>
     #applications {
-        background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
+        background: url('../assets/images/galaxy3-mobile.jpg') no-repeat bottom center fixed;
         background-size: cover;
         position: relative;
     }
@@ -53,6 +53,11 @@
     }
 
     @media all and (min-width: 1024px) {
+        #applications {
+            background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
+            background-size: cover;
+            position: relative;
+        }
         .caption {
             bottom: 100px;
             left: 15%;

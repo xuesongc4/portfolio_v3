@@ -22,7 +22,7 @@
         background-color: black;
         color: white;
         width: 100%;
-        height: 40px;
+        height: 60px;
         display: block;
         position: absolute;
         font-size: 12px;
@@ -31,7 +31,7 @@
     }
     .footer-container{
         position: absolute;
-        top: 50%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
@@ -65,6 +65,9 @@
         footer{
             font-size: 28px;
             height: 80px;
+        }
+        .footer-container{
+            top: 50%;
         }
     }
 </style>
