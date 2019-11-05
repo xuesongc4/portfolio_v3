@@ -134,7 +134,7 @@
         position: absolute;
         color: #A42327;
         z-index: 10;
-        bottom: 75px;
+        bottom: 120px;
         left: 5%;
     }
     .item-1, .item-2, .item-3{
