@@ -42,7 +42,11 @@
                 } else {
                     screenSize = width;
                 }
-                this.screenSize = screenSize;
+                if(screenSize < 1024){
+                    this.screenSize = screenSize*2;
+                }else{
+                    this.screenSize = screenSize;
+                }
             },
             milkyStarLoader() {
                 const numberOfStars = 100 * this.starDensity;
@@ -91,7 +95,7 @@
 </script>
 <style scoped>
     #intro {
-        background: url('../assets/images/stars.png') no-repeat bottom center fixed;
+        background: url('../assets/images/stars-mobile.png') no-repeat bottom center fixed;
         background-size: cover;
         position: relative;
         overflow: hidden;
@@ -130,7 +134,7 @@
         position: absolute;
         color: #A42327;
         z-index: 10;
-        bottom: 40px;
+        bottom: 75px;
         left: 5%;
     }
     .item-1, .item-2, .item-3{
@@ -183,7 +187,7 @@
             font-size: 24px;
         }
         .intro-title {
-            bottom: 50px;
+            bottom: 75px;
             left: 20%;
         }
         #milky-way {
@@ -207,6 +211,13 @@
     }
 
     @media all and (min-width: 1024px) {
+        #intro {
+            background: url('../assets/images/stars.png') no-repeat bottom center fixed;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
         .disclaimer{
             font-size: 16px;
             top: unset;

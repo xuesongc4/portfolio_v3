@@ -67,7 +67,7 @@
 
 <style scoped>
     #tech-skills{
-        background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
+        background: url('../assets/images/galaxy3-mobile.jpg') no-repeat bottom center fixed;
         background-size: cover;
     }
     .page-title{
@@ -187,6 +187,10 @@
     }
 
     @media all and (min-width: 1024px) {
+        #tech-skills{
+            background: url('../assets/images/galaxy3.jpg') no-repeat bottom center fixed;
+            background-size: cover;
+        }
         .tech-skills-list{
             width: 500px;
         }
