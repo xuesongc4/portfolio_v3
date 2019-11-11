@@ -38,28 +38,29 @@
                         title: 'Tar Football',
                         videoUrl: require('./assets/videos/tar.mp4'),
                         url: 'https://www.tarfootball.com',
-                        info: 'The official website of the Newport Harbor High School Football Team. This custom WordPress site covers all of the latest happenings surrounding the team. The store is a Shopify store with all of the hottest Tar merchandise. The sales and sponsorships generated between these sites allow the boys to keep playing hard! Go Tars!'
+                        info: 'The official website of the Newport Harbor High School Football Team. This WordPress site has a completely custom theme that I developed. The site covers all of the latest happenings surrounding the team. The store is a Shopify store with all of the hottest Tar merchandise. The sales and sponsorships generated between these sites allow the boys to keep playing hard! Go Tars!'
+                    },
+                    {
+                        title: 'Tar Football App',
+                        videoUrl: require('./assets/videos/tarfootball-app.mp4'),
+                        gitUrl: 'https://github.com/xuesongc4/Tarfootball-App',
+                        url: 'https://tarfootball.netlify.com/',
+                        info: 'A Vue web app that pulls data from the tarfootball.com WordPress REST API. This application uses Vuex for state management and Axios to communicate with the WordPress site'
                     },
                     {
                         title: 'Just Food For Dogs',
                         videoUrl: require('./assets/videos/jffd.mp4'),
                         url: 'https://www.justfoodfordogs.com/',
-                        info: 'A Nop Commerce based website where I handled a majority of the front end development. The site had some interesting client requests that made for a fun and challenging build. The site uses Bootstrap for the homepage and Foundation for the interior pages(long story...). P.S. I love dogs!'
+                        info: 'A Nop Commerce based website where I handled a majority of the front end development. The site had some interesting challenges that made for a fun and unique build. The site uses Bootstrap for the homepage and Foundation for the interior pages(long story...) with a .Net backend. P.S. I love dogs!'
                     },
                     {
                         title: 'Tic Tac Remix',
                         videoUrl: require('./assets/videos/tictacremix.mp4'),
                         gitUrl: 'https://github.com/xuesongc4/tic-tac-remix2.0',
                         url: 'https://tic-tac-remix.netlify.com/',
-                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s turn adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery'
-                    },
-                    {
-                        title: 'Reading For Dummies',
-                        videoUrl: require('./assets/videos/reading.mp4'),
-                        gitUrl: 'https://github.com/xuesongc4/readings_for_dummies',
-                        url: 'https://reading-for-dummies.netlify.com/',
-                        info: ' The average person reads at about 300 words per a minute, however by removing the need to move your eyes you can read much faster. Take a look at this app that helps slow readers like myself read at amazingly high speeds! This app was created using vanilla js + jQuery'
+                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s move adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery'
                     }
+
                 ],
                 skills: [
                     {skill: 'Vue.js', logoPic: require('./assets/logo/vue.png')},
