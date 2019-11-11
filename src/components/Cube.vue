@@ -111,7 +111,7 @@
 
     #cube .front {
         transform: rotateY(0deg) translateZ(220px);
-        color: deepskyblue;
+        color: #165FA0;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
@@ -119,7 +119,7 @@
 
     #cube .back {
         transform: rotateY(180deg) translateZ(220px);
-        color: red;
+        color: #FB9F19;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
@@ -127,7 +127,7 @@
 
     #cube .right {
         transform: rotateY(90deg) translateZ(220px);
-        color: white;
+        color: #165FA0;
         letter-spacing: -2px;
         width: 220px;
         height: 220px;
@@ -136,7 +136,7 @@
 
     #cube .left {
         transform: rotateY(-90deg) translateZ(220px);
-        color: #ffff00;
+        color: red;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
