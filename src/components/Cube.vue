@@ -111,7 +111,7 @@
 
     #cube .front {
         transform: rotateY(0deg) translateZ(220px);
-        color: #165FA0;
+        color: #55ACEE;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
@@ -127,7 +127,7 @@
 
     #cube .right {
         transform: rotateY(90deg) translateZ(220px);
-        color: #165FA0;
+        color: #55ACEE;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
