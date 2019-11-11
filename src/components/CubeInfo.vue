@@ -242,7 +242,7 @@
             top: 150px;
         }
         #info{
-            font-size: 20px;
+            font-size: 19px;
         }
     }
 
