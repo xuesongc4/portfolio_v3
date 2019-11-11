@@ -128,7 +128,6 @@
     #cube .right {
         transform: rotateY(90deg) translateZ(220px);
         color: #165FA0;
-        letter-spacing: -2px;
         width: 220px;
         height: 220px;
         transition-duration: .8s;
