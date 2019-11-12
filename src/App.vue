@@ -45,7 +45,7 @@
                         videoUrl: require('./assets/videos/tarfootball-app.mp4'),
                         gitUrl: 'https://github.com/xuesongc4/Tarfootball-App',
                         url: 'https://tarfootball.netlify.com/',
-                        info: 'A Vue web app that pulls data from the tarfootball.com WordPress REST API. This app has the latest Tar Football news, the schedule and the current player roster. This application uses Vuex for state management and Axios to communicate with the WordPress API'
+                        info: 'A Vue web app that pulls data from the tarfootball.com WordPress REST API. This app has the latest Tar Football news, the schedule and the current player roster. This application uses Vuex for state management and Axios to communicate with the WordPress API.'
                     },
                     {
                         title: 'Just Food For Dogs',
@@ -58,7 +58,7 @@
                         videoUrl: require('./assets/videos/tictacremix.mp4'),
                         gitUrl: 'https://github.com/xuesongc4/tic-tac-remix2.0',
                         url: 'https://tic-tac-remix.netlify.com/',
-                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s move adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery'
+                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s move adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery.'
                     }
 
                 ],
