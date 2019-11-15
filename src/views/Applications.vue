@@ -11,7 +11,7 @@
     import CubeInfo from "../components/CubeInfo";
 
     export default {
-        name: "Apps",
+        name: "Applications",
         components: {
             CubeInfo,
             Cube

@@ -2,7 +2,7 @@
     <div id="app">
         <MainMenu :menuItems="pages" @inView="inView($event)"/>
         <Intro :starDensity="10" :shooting-star-density="1"/>
-        <Apps :applications="apps"/>
+        <Applications :applications="apps"/>
         <Skills :skills="skills" :pageInView="skillsPageInView"></Skills>
         <Contact></Contact>
     </div>
@@ -11,7 +11,7 @@
 <script>
     import MainMenu from './components/MainMenu'
     import Intro from './views/Intro'
-    import Apps from './views/Apps'
+    import Applications from './views/Applications'
     import Skills from './views/Skills'
     import Contact from "./views/Contact";
 
@@ -20,7 +20,7 @@
         components: {
             Intro,
             MainMenu,
-            Apps,
+            Applications,
             Skills,
             Contact
         },
