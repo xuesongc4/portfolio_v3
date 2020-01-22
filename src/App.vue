@@ -45,26 +45,27 @@
                         videoUrl: require('./assets/videos/tarfootball-app.mp4'),
                         gitUrl: 'https://github.com/xuesongc4/Tarfootball-App',
                         url: 'https://tarfootball.netlify.com/',
-                        info: 'A Vue web app that pulls data from the tarfootball.com WordPress REST API. This app has the latest Tar Football news, the schedule and the current player roster. This application uses Vuex for state management and Axios to communicate with the WordPress API.'
+                        info: 'A Vue based web app that pulls data from the tarfootball.com WordPress REST API. This app has all of the latest Tar Football news, the schedule and the current player roster. This application uses Vuex for state management and Axios to communicate with the WordPress API.'
                     },
                     {
                         title: 'Just Food For Dogs',
                         videoUrl: require('./assets/videos/jffd.mp4'),
                         url: 'https://www.justfoodfordogs.com/',
-                        info: 'A Nop Commerce based website where I handled a majority of the front end development. The site had some interesting challenges that made for a fun and unique build. The site uses Bootstrap for the homepage and Foundation for the interior pages(long story...) with a .Net backend. P.S. I love dogs!'
+                        info: 'A Nop Commerce website where I handled a majority of the front-end development. The site had some interesting challenges that made for a fun and unique build. P.S. I love dogs!'
                     },
                     {
                         title: 'Tic Tac Remix',
                         videoUrl: require('./assets/videos/tictacremix.mp4'),
-                        gitUrl: 'https://github.com/xuesongc4/tic-tac-remix2.0',
+                        gitUrl: 'https://github.com/xuesongc4/tic-tac-remix2',
                         url: 'https://tic-tac-remix.netlify.com/',
-                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s move adds layers of music to the playing sound track. This game was created using vanilla JS + jQuery.'
+                        info: 'A DJ/music themed tic-tac-toe game that introduces a musical twist the the classic game. Each player\'s moves adds a layer of music to the soundtrack that is playing. This game was created using React JS.'
                     }
 
                 ],
                 skills: [
                     {skill: 'Vue.js', logoPic: require('./assets/logo/vue.png')},
-                    {skill: 'JavaScript', logoPic: require('./assets/logo/JavaScript.png')},
+                    {skill: 'React', logoPic: require('./assets/logo/React.png')},
+                    {skill: 'JavaScript ES6', logoPic: require('./assets/logo/JavaScript.png')},
                     {skill: 'jQuery', logoPic: require('./assets/logo/jQuery.png')},
                     {skill: 'HTML', logoPic: require('./assets/logo/HTML5.png')},
                     {skill: 'CSS', logoPic: require('./assets/logo/CSS3.png')},
