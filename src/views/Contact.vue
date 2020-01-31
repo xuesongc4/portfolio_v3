@@ -349,4 +349,10 @@
         }
     }
 
+    @media all and (min-width: 1920px) {
+        .stars-bg {
+            background: url("../assets/images/stars-bg2.png") no-repeat right bottom;
+        }
+    }
+
 </style>

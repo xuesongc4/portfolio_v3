@@ -147,6 +147,7 @@
     }
     .skills-block-back{
         background: url("../assets/images/red.jpg")bottom center no-repeat fixed;
+        background-size: cover;
         height: 100%;
         width: 100%;
         position: absolute;
