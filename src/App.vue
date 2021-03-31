@@ -65,7 +65,7 @@
                 skills: [
                     {skill: 'Vue.js', logoPic: require('./assets/logo/vue.png')},
                     {skill: 'React', logoPic: require('./assets/logo/React.png')},
-                    {skill: 'JavaScript ES6', logoPic: require('./assets/logo/JavaScript.png')},
+                    {skill: 'JavaScript', logoPic: require('./assets/logo/JavaScript.png')},
                     {skill: 'jQuery', logoPic: require('./assets/logo/jQuery.png')},
                     {skill: 'HTML', logoPic: require('./assets/logo/HTML5.png')},
                     {skill: 'CSS', logoPic: require('./assets/logo/CSS3.png')},
