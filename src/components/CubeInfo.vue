@@ -239,7 +239,7 @@
     @media all and (min-width: 1024px) {
         .info-container {
             right: 15%;
-            top: 150px;
+            top: 20%;
         }
         #info{
             font-size: 19px;

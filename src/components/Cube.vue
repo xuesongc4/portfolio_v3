@@ -94,7 +94,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 230px;
+        top: 25%;
         transition-duration: .5s;
     }
 
