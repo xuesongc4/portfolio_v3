@@ -13,7 +13,8 @@
             <ul>
                 <div :style="{top: arrowPosition+'%'}" class="selected"></div>
                 <li :key="index" v-for="(item, index) in menuItems">
-                    <a :id="'menu'+item.url" @click="moveArrow(index)" v-smooth-scroll="{duration: 2000, container: '#app'}"
+                    <a :id="'menu'+item.url" @click="moveArrow(index)"
+                       v-smooth-scroll="{duration: 2000, container: '#app'}"
                        :href="item.url">
                         {{item.title}}
                     </a>
@@ -47,35 +48,35 @@
             pageDataTracker($direction) {
                 this.disableSpamClickArrow();
                 if ($direction === "up") {
-                    if(this.arrowPosition === 25){
+                    if (this.arrowPosition === 25) {
                         document.getElementById("menu#intro").click();
-                    }else if(this.arrowPosition === 50){
+                    } else if (this.arrowPosition === 50) {
                         document.getElementById("menu#applications").click();
-                    }else if(this.arrowPosition === 75){
+                    } else if (this.arrowPosition === 75) {
                         document.getElementById("menu#tech-skills").click();
                     }
                 } else if ($direction === "down") {
-                    if(this.arrowPosition === 0){
+                    if (this.arrowPosition === 0) {
                         document.getElementById("menu#applications").click();
-                    }else if(this.arrowPosition === 25){
+                    } else if (this.arrowPosition === 25) {
                         document.getElementById("menu#tech-skills").click();
-                    }else if(this.arrowPosition === 50){
+                    } else if (this.arrowPosition === 50) {
                         document.getElementById("menu#contact").click();
                     }
                 }
 
             },
-            disableSpamClickArrow(){
+            disableSpamClickArrow() {
                 this.arrowDisable = true;
-                setTimeout(()=>this.arrowDisable=false,2000);
+                setTimeout(() => this.arrowDisable = false, 2000);
             },
             handleScroll($event) {
                 let windowHeightBreakPoint = 667;
-                if(window.innerHeight >= windowHeightBreakPoint){
-                    if (($event.deltaY < 0) && (this.arrowPosition !== 0) && (this.arrowDisable==false)) {
+                if (window.innerHeight >= windowHeightBreakPoint) {
+                    if (($event.deltaY < 0) && (this.arrowPosition !== 0) && (this.arrowDisable == false)) {
                         document.getElementById("up-arrow").click();
                         this.disableSpamClickArrow();
-                    } else if (($event.deltaY > 0) && (this.arrowPosition !== 75) && (this.arrowDisable==false)) {
+                    } else if (($event.deltaY > 0) && (this.arrowPosition !== 75) && (this.arrowDisable == false)) {
                         document.getElementById("down-arrow").click();
                         this.disableSpamClickArrow();
                     }
@@ -89,8 +90,8 @@
         destroyed() {
             window.removeEventListener('wheel', this.handleScroll);
         },
-        watch:{
-            arrowPosition: function(){
+        watch: {
+            arrowPosition: function () {
                 if (this.arrowPosition === 0) {
                     this.upPage = "";
                     this.downPage = "#applications";
@@ -127,12 +128,15 @@
         transition-duration: .3s;
         display: none;
     }
-    .menu:hover{
+
+    .menu:hover {
         opacity: .75;
     }
-    .disabled{
-        pointer-events:none;
+
+    .disabled {
+        pointer-events: none;
     }
+
     ul {
         list-style: none;
         position: relative;
@@ -174,10 +178,11 @@
         border-left: 10px solid white;
     }
 
-    .mouse-arrow{
+    .mouse-arrow {
         position: absolute;
         display: none;
     }
+
     .mouse-arrow.mouse-down {
         left: 50%;
         bottom: 40px;
@@ -259,7 +264,7 @@
         cursor: pointer;
     }
 
-    #down-arrow, #up-arrow{
+    #down-arrow, #up-arrow {
         display: none;
     }
 
@@ -276,10 +281,12 @@
         li {
             padding: 24px 0
         }
-        .menu{
+
+        .menu {
             font-size: 16px;
             opacity: .4;
         }
+
         .selected {
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
@@ -288,10 +295,11 @@
     }
 
     @media all and (min-height: 667px) {
-        .menu{
+        .menu {
             display: block;
         }
-        #down-arrow, #up-arrow{
+
+        #down-arrow, #up-arrow {
             display: block;
         }
     }

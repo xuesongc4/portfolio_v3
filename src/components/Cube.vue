@@ -30,12 +30,12 @@
                 cubeSideSelectedData: ""
             }
         },
-        watch:{
-            close: function ($event){
+        watch: {
+            close: function ($event) {
                 this.moveCubeData = $event.data;
                 this.cubeDeSelect();
             },
-            side: function ($event){
+            side: function ($event) {
                 this.selected = $event;
                 this.cubeSelect($event);
             }
@@ -44,7 +44,7 @@
             cubeSelect(side) {
                 this.rotateCubeData = "";
                 this.moveCubeData = "move";
-                this.$emit('selectSide',{data:side});
+                this.$emit('selectSide', {data: side});
 
                 if (side === 0) {
                     this.cubeSideSelectedData = "show-front";
@@ -273,7 +273,8 @@
             width: 150px;
             height: 150px;
         }
-        video{
+
+        video {
             width: 275%;
         }
 
@@ -309,19 +310,18 @@
             transform: rotateY(0deg) translateZ(500px) !important;
         }
 
-        .cube-side.right.highlight  {
+        .cube-side.right.highlight {
             transform: rotateY(90deg) translateZ(500px) !important;
         }
 
-        .cube-side.back.highlight  {
+        .cube-side.back.highlight {
             transform: rotateY(180deg) translateZ(500px) !important;
         }
 
-        .cube-side.left.highlight  {
+        .cube-side.left.highlight {
             transform: rotateY(-90deg) translateZ(500px) !important;
         }
     }
-
 
 
 </style>

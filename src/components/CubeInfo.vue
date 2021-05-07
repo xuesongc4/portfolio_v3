@@ -59,7 +59,7 @@
                             this.bubble = true;
                         }, this.timeInterval)
                     }, this.timeInterval)
-                }, this.timeInterval/10)
+                }, this.timeInterval / 10)
             },
             closeInfo() {
                 this.$emit("closeInfo", {data: 'close'});
@@ -101,6 +101,7 @@
         transition-duration: .3s;
         cursor: pointer;
     }
+
     .bubble.selected {
         border-width: 3px;
         box-shadow: 0 0 20px 5px white;
@@ -108,7 +109,7 @@
         pointer-events: none;
     }
 
-    .bubbleShow{
+    .bubbleShow {
         display: flex;
     }
 
@@ -241,7 +242,8 @@
             right: 15%;
             top: 20%;
         }
-        #info{
+
+        #info {
             font-size: 19px;
         }
     }
@@ -262,16 +264,19 @@
         #info.horizontal {
             width: 90vw;
         }
-        #info{
-            background: rgba(255,255,255,.8);
+
+        #info {
+            background: rgba(255, 255, 255, .8);
         }
-        .bubble{
+
+        .bubble {
             border: 1px solid black;
         }
+
         .bubble.selected {
             border-width: 1px;
             box-shadow: none;
-            background-color: rgba(0,0,0,.75);
+            background-color: rgba(0, 0, 0, .75);
             pointer-events: none;
         }
 

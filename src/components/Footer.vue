@@ -3,7 +3,8 @@
         <div class="footer-container">
             <ul class="social">
                 <li class="show-for-medium display-none">Connect with me on:</li>
-                <li><a target="_blank" href="https://www.linkedin.com/in/xuesongc"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/xuesongc"><i class="fa fa-linkedin"
+                                                                                      aria-hidden="true"></i></a></li>
                 <li><a target="_blank" href="https://github.com/xuesongc4"><i class="fa fa-github"></i></a></li>
             </ul>
         </div>
@@ -17,7 +18,7 @@
 </script>
 
 <style scoped>
-    footer{
+    footer {
         background-color: black;
         color: white;
         width: 100%;
@@ -28,7 +29,8 @@
         z-index: 2000;
         bottom: -6px;
     }
-    .footer-container{
+
+    .footer-container {
         position: absolute;
         top: 30%;
         left: 50%;
@@ -39,33 +41,39 @@
         justify-content: space-between;
         max-width: 1200px;
     }
-    footer a{
+
+    footer a {
         color: white;
         margin-left: 20px;
         font-weight: 700;
     }
-    footer a:hover{
+
+    footer a:hover {
         color: #a42327;
     }
-    .social{
+
+    .social {
         display: flex;
         list-style: none;
     }
-    .resume{
+
+    .resume {
         padding-right: 32px;
     }
 
     @media all and (min-width: 400px) {
-        footer{
+        footer {
             font-size: 18px;
         }
     }
+
     @media all and (min-width: 1024px) {
-        footer{
+        footer {
             font-size: 28px;
             height: 80px;
         }
-        .footer-container{
+
+        .footer-container {
             top: 50%;
         }
     }
